@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\LufixController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MailerController;
+use App\Http\Controllers\WebmailController;
+use App\Http\Controllers\SMTPController;
+use App\Http\Controllers\CardController;
+use App\Http\Controllers\LeadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 
-Route::get('/lufus', [LufixController::class, 'index'])->name('lufix.index');
+Route::get('/', [LufixController::class, 'index'])->name('lufix.index');
+Route::get('/mailer', [MailerController::class, 'mailer'])->name('mailer');
+Route::get('/webmail', [WebmailController::class, 'webMail'])->name('webmail');
+Route::get('/smtp', [SMTPController::class, 'smtp'])->name('smtp');
+Route::get('/card', [CardController::class, 'card'])->name('card');
+Route::get('/lead', [LeadController::class, 'lead'])->name('lead');

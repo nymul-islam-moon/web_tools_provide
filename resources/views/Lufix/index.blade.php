@@ -1,5 +1,9 @@
 @extends('master')
 
+@section('title')
+    Lufix
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">
