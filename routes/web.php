@@ -23,7 +23,6 @@ Route::get('/', function () {
 });
 
 
-<<<<<<< HEAD
 //---------------Account Controller--------------//
 Route::get('/account', [AccountController::class, 'accountIndex'])->name('account.index');
 
@@ -35,6 +34,7 @@ Route::get('/letter', [LetterController::class, 'letterIndex'])->name('letter.in
 
 //---------------Tutorial Controller--------------//
 Route::get('/tutorial', [TutorialController::class, 'tutorialIndex'])->name('tutorial.index');
-=======
+
+
 Route::get('/lufus', [LufixController::class, 'index'])->name('lufix.index');
->>>>>>> 62c7084b71c0944af3d3490bf647bc839bed297a
+
