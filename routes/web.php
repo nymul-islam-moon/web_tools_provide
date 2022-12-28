@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ScriptController;
+use App\Http\Controllers\LetterController;
+use App\Http\Controllers\TutorialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +21,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return 'Test Route';
-});
+
+//---------------Account Controller--------------//
+Route::get('/account', [AccountController::class, 'accountIndex'])->name('account.index');
+
+//---------------Script Controller--------------//
+Route::get('/script', [ScriptController::class, 'scriptIndex'])->name('script.index');
+
+//---------------Letter Controller--------------//
+Route::get('/letter', [LetterController::class, 'letterIndex'])->name('letter.index');
+
+//---------------Tutorial Controller--------------//
+Route::get('/tutorial', [TutorialController::class, 'tutorialIndex'])->name('tutorial.index');
