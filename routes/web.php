@@ -34,6 +34,7 @@ Route::get('/webmail', [WebmailController::class, 'webMail'])->name('webmail');
 Route::get('/smtp', [SMTPController::class, 'smtp'])->name('smtp');
 Route::get('/card', [CardController::class, 'card'])->name('card');
 Route::get('/lead', [LeadController::class, 'lead'])->name('lead');
+
 //---------------Account Controller--------------//
 Route::get('/account', [AccountController::class, 'accountIndex'])->name('account.index');
 
