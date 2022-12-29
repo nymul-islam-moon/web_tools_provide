@@ -22,7 +22,20 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
+            AccountSeeder::class,
+            CardSeeder::class,
+            CpanelsSeeder::class,
+            LeadSeeder::class,
+            LetterSeeder::class,
             LufixSeeder::class,
+            MailerSeeder::class,
+            RdpsSeeder::class,
+            ScriptSeeder::class,
+            ShellsSeeder::class,
+            SMTPSeeder::class,
+            SshWhmSeeder::class,
+            TutorialSeeder::class,
+            WebmailSeeder::class,
         ]);
     }
 }
