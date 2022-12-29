@@ -18,24 +18,28 @@ use App\Http\Controllers\TutorialController;
 //});
 
 
-Route::get('/', [LufixController::class, 'index'])->name('lufix.index');
-Route::get('/mailer', [MailerController::class, 'mailer'])->name('mailer');
-Route::get('/webmail', [WebmailController::class, 'webMail'])->name('webmail');
-Route::get('/smtp', [SMTPController::class, 'smtp'])->name('smtp');
-Route::get('/card', [CardController::class, 'card'])->name('card');
-Route::get('/lead', [LeadController::class, 'lead'])->name('lead');
+// Product
+Route::group(['prefix' => '/product','as' => 'product.',], function () {
+    Route::get('/', [LufixController::class, 'index'])->name('lufix.index');
+    Route::get('/mailer', [MailerController::class, 'mailer'])->name('mailer');
+    Route::get('/webmail', [WebmailController::class, 'webMail'])->name('webmail');
+    Route::get('/smtp', [SMTPController::class, 'smtp'])->name('smtp');
+    Route::get('/card', [CardController::class, 'card'])->name('card');
+    Route::get('/lead', [LeadController::class, 'lead'])->name('lead');
 
-//---------------Account Controller--------------//
-Route::get('/account', [AccountController::class, 'accountIndex'])->name('account.index');
+    //---------------Account Controller--------------//
+    Route::get('/account', [AccountController::class, 'accountIndex'])->name('account.index');
 
-//---------------Script Controller--------------//
-Route::get('/script', [ScriptController::class, 'scriptIndex'])->name('script.index');
+    //---------------Script Controller--------------//
+    Route::get('/script', [ScriptController::class, 'scriptIndex'])->name('script.index');
 
-//---------------Letter Controller--------------//
-Route::get('/letter', [LetterController::class, 'letterIndex'])->name('letter.index');
+    //---------------Letter Controller--------------//
+    Route::get('/letter', [LetterController::class, 'letterIndex'])->name('letter.index');
 
-//---------------Tutorial Controller--------------//
-Route::get('/tutorial', [TutorialController::class, 'tutorialIndex'])->name('tutorial.index');
+    //---------------Tutorial Controller--------------//
+    Route::get('/tutorial', [TutorialController::class, 'tutorialIndex'])->name('tutorial.index');
 
-Route::get('/lufus', [LufixController::class, 'index'])->name('lufix.index');
+    Route::get('/lufus', [LufixController::class, 'index'])->name('lufix.index');
+});
+// End Product
 
