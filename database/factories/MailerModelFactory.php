@@ -18,8 +18,11 @@ class MailerModelFactory extends Factory
     {
         return [
             'mailer' => $this->faker->sentence(),
+            'country' => $this->faker->country(),
+            'hosting' => $this->faker->word(),
             'price' => \rand(1000,3000),
             'status' => \rand(1,2),
+            'added' => $this->faker->word(),
         ];
     }
 }

@@ -60,12 +60,15 @@
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td>{{$mailer->mailer}}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{$mailer->country}}</td>
+                                    <td>{{$mailer->hosting}}</td>
                                     <td>{{$mailer->price}}</td>
                                     <td>{{$mailer->status}}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{$mailer->added}}</td>
+                                    <td>
+                                        <a href="" class="btn btn-primary btn-sm">Update</a>
+                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </table>

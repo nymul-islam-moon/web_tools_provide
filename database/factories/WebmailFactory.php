@@ -20,8 +20,12 @@ class WebmailFactory extends Factory
             'type' => $this->faker->sentence(),
             'username' => $this->faker->sentence(),
             'password' => $this->faker->password(),
+            'country' => $this->faker->country(),
+            'hosting' => $this->faker->word(),
+            'category' => $this->faker->word(),
             'price' => \rand(1000,3000),
             'status' => \rand(1,2),
+            'added' => $this->faker->word(),
         ];
     }
 }
