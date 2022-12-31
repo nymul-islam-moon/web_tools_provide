@@ -27,6 +27,7 @@ class LeadFactory extends Factory
             'country' => $this->faker->country(),
             'price' => \rand(1000,2000),
             'status' => \rand(1,2),
+            'added' => $this->faker->word(),
         ];
     }
 }

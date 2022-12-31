@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('country');
             $table->double('price');
             $table->tinyInteger('status');
+            $table->string('added');
             $table->timestamps();
         });
     }

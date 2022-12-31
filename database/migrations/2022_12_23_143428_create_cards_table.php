@@ -21,8 +21,10 @@ return new class extends Migration
             $table->integer('cvv');
             $table->string('available_info');
             $table->text('all_info');
+            $table->string('country');
             $table->double('price');
             $table->tinyInteger('status');
+            $table->string('added');
             $table->timestamps();
         });
     }

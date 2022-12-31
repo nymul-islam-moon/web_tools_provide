@@ -70,8 +70,11 @@
                                     <td>{{$lead->country}}</td>
                                     <td>{{$lead->price}}</td>
                                     <td>{{$lead->status}}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{$lead->added}}</td>
+                                    <td>
+                                        <a href="" class="btn btn-primary btn-sm">Update</a>
+                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </table>

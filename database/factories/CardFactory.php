@@ -23,8 +23,10 @@ class CardFactory extends Factory
             'cvv' => \rand(10,1000),
             'available_info' => $this->faker->sentence(),
             'all_info' => $this->faker->paragraph(),
+            'country' => $this->faker->country(),
             'price' => \rand(1000,3000),
             'status' => \rand(1,2),
+            'added' => $this->faker->word(),
         ];
     }
 }

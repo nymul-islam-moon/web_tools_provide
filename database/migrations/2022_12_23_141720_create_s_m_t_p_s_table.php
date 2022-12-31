@@ -20,8 +20,11 @@ return new class extends Migration
             $table->string('username');
             $table->string('password');
             $table->string('web_mail');
+            $table->string('country');
+            $table->string('hosting');
             $table->double('price');
             $table->tinyInteger('status');
+            $table->string('added');
             $table->timestamps();
         });
     }

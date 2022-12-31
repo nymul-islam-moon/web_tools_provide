@@ -22,8 +22,11 @@ class SMTPFactory extends Factory
             'username' => $this->faker->sentence(),
             'password' => $this->faker->password(),
             'web_mail' => $this->faker->sentence(),
+            'country' => $this->faker->country(),
+            'hosting' => $this->faker->word(),
             'price' => \rand(1000,5500),
             'status' => \rand(1,2),
+            'added' => $this->faker->word(),
         ];
     }
 }

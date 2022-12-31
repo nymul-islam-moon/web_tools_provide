@@ -76,14 +76,17 @@
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td>{{$webMail->username}}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{$webMail->country}}</td>
+                                    <td>{{$webMail->hosting}}</td>
                                     <td>{{$webMail->type}}</td>
-                                    <td></td>
+                                    <td>{{$webMail->category}}</td>
                                     <td>{{$webMail->price}}</td>
                                     <td>{{$webMail->status}}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{$webMail->added}}</td>
+                                    <td>
+                                        <a href="" class="btn btn-primary btn-sm">Update</a>
+                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </table>
