@@ -13,7 +13,7 @@
                         <h3 class="text-center">Add Mailers</h3>
                     </div>
                     <div class="card-body">
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="{{route('add.mailer')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-2">
                                 <label class="form-label">Mailer</label>
@@ -63,11 +63,21 @@
                                     <td>{{$mailer->country}}</td>
                                     <td>{{$mailer->hosting}}</td>
                                     <td>{{$mailer->price}}</td>
-                                    <td>{{$mailer->status}}</td>
+                                    @if($mailer->status == 1)
+                                        <td>Enable</td>
+                                    @else
+                                        <td>Disable</td>
+                                    @endif
                                     <td>{{$mailer->added}}</td>
                                     <td>
-                                        <a href="" class="btn btn-primary btn-sm">Update</a>
-                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                        <a href="{{route('edit.mailer',['id' => $mailer->id])}}" class="btn btn-primary btn-sm">Update</a>
+                                        <form action="{{route('delete.mailer',['id'=>$mailer->id])}})}}" method="post" id="delete">
+                                            @csrf
+                                            <input type="hidden" value="{{$mailer->id}}">
+                                            <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('Are you sure??')">Delete
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

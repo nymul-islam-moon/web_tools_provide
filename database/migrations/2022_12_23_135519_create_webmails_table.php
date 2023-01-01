@@ -18,12 +18,8 @@ return new class extends Migration
             $table->string('type');
             $table->string('username');
             $table->string('password');
-            $table->string('country');
-            $table->string('hosting');
-            $table->string('category');
             $table->double('price');
-            $table->tinyInteger('status');
-            $table->string('added');
+            $table->tinyInteger('status')->default(0)->comment('0 = disable; 1 = enable');
             $table->timestamps();
         });
     }
