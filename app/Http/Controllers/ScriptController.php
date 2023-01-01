@@ -7,22 +7,41 @@ use Illuminate\Http\Request;
 
 class ScriptController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function scriptIndex(Request $request)
     {
         $script = Script::all();
-        return view('Script.script', compact('script'));
+        return view('Script.script', [
+            'scripts' => Script::all()
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function saveScript(Request $request)
+    {
+        Script::saveScript($request);
+        return redirect(route('script'));
+    }
+
+    public function deleteScript(Request $request)
+    {
+        $script = Script::find($request->script_id);
+        $script->delete();
+        return back();
+    }
+
+    public function editScript($id)
+    {
+        return view('Script.edit-script', [
+            'scripts' => Script::find($id)
+        ]);
+    }
+
+    public function updateScript(Request $request)
+    {
+        Script::updateScript($request);
+        return redirect(route('script'));
+    }
+
+
     public function create()
     {
         //

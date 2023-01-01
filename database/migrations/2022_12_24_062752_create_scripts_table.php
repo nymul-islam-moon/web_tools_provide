@@ -15,13 +15,15 @@ return new class extends Migration
     {
         Schema::create('scripts', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->nullable();
-            $table->string('download_link')->nullable();
-            $table->string('name')->nullable();
+            $table->string('script_name')->nullable();
+            $table->string('program_lang')->nullable();
+            $table->string('hits_link')->nullable();
             $table->text('description')->nullable();
-            $table->string('lang')->nullable();
+            $table->string('proof')->nullable();
+            $table->string('selling_type')->nullable();
+            $table->string('instruction')->nullable();
             $table->float('price')->nullable();
-            $table->tinyInteger('status')->nullable();
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

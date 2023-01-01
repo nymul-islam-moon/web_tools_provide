@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -15,14 +14,15 @@ return new class extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->nullable();
-            $table->string('download_link')->nullable();
+            $table->string('account_type')->nullable();
+            $table->string('hits_link')->nullable();
             $table->string('website')->nullable();
-            $table->text('description')->nullable();
-            $table->string('type')->nullable();
+            $table->string('source')->nullable();
             $table->string('country')->nullable();
+            $table->text('description')->nullable();
+            $table->string('proof')->nullable();
             $table->float('price')->nullable();
-            $table->tinyInteger('status')->nullable();
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

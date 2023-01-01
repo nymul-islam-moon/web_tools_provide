@@ -7,22 +7,43 @@ use Illuminate\Http\Request;
 
 class TutorialController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function tutorialIndex(Request $request)
     {
         $tutorial = Tutorial::all();
-        return view('Tutorial.tutorial', compact('tutorial'));
+        return view('Tutorial.tutorial', [
+            'tutorials' => Tutorial::all()
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function saveTutorial(Request $request)
+    {
+        Tutorial::saveTutorial($request);
+        return redirect(route('tutorial'));
+    }
+
+    public function deleteTutorial(Request $request)
+    {
+        $tutorial = Tutorial::find($request->tutorial_id);
+        $tutorial->delete();
+        return back();
+    }
+
+    public function editTutorial($id)
+    {
+        return view('Tutorial.edit-tutorial', [
+            'tutorials' => Tutorial::find($id)
+        ]);
+    }
+
+    public function updateTutorial(Request $request)
+    {
+        Tutorial::updateTutorial($request);
+        return redirect(route('tutorial'));
+    }
+
+
+
+
     public function create()
     {
         //
