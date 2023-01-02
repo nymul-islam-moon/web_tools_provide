@@ -24,8 +24,7 @@ return new class extends Migration
             $table->string('proof');
             $table->string('country');
             $table->double('price');
-            $table->tinyInteger('status');
-            $table->string('added');
+            $table->tinyInteger('status')->default(0)->comment('0 = disable; 1 = enable');
             $table->timestamps();
         });
     }

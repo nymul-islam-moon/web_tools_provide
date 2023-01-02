@@ -16,11 +16,8 @@ return new class extends Migration
         Schema::create('mailer_models', function (Blueprint $table) {
             $table->id();
             $table->string('mailer');
-            $table->string('country');
-            $table->string('hosting');
             $table->double('price');
-            $table->tinyInteger('status');
-            $table->string('added');
+            $table->tinyInteger('status')->default(0)->comment('0 = disable; 1 = enable');
             $table->timestamps();
         });
     }
