@@ -11,6 +11,10 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ScriptController;
 use App\Http\Controllers\LetterController;
 use App\Http\Controllers\TutorialController;
+use App\Http\Controllers\ShellsController;
+use App\Http\Controllers\SshWhmsController;
+use App\Http\Controllers\CpanelsController;
+use App\Http\Controllers\RdpsController;
 
 
 //Route::get('/', function () {
@@ -86,4 +90,11 @@ Route::get('/editTutorial/{id}', [TutorialController::class, 'editTutorial'])->n
 
 //});
 // End Product
+
+Route::resource('/product/shells',ShellsController::class);
+Route::resource('/product/cpanels',CpanelsController::class);
+Route::resource('/product/rdps',RdpsController::class);
+Route::resource('/product/sshwhm',SshWhmsController::class);
+
+
 

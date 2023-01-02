@@ -15,14 +15,16 @@ return new class extends Migration
     {
         Schema::create('ssh_whms', function (Blueprint $table) {
             $table->id();
-            $table->string('ssh');
-            $table->string('host_info');
-            $table->string('has_whm');
-            $table->string('country');
-            $table->string('hosting');
-            $table->string('rams');
-            $table->float('price');
-            $table->tinyInteger('status');
+            $table->string('ssh')->nullable();
+            $table->string('username')->nullable();
+            $table->string('password')->nullable();
+            $table->string('host_info')->nullable();
+            $table->string('has_whm')->nullable();
+            $table->string('country')->nullable();
+            $table->string('hosting')->nullable();
+            $table->string('rams')->nullable();
+            $table->float('price')->nullable();
+            $table->tinyInteger('status')->nullable();
             $table->timestamps();
         });
     }

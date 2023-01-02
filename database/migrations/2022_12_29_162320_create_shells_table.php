@@ -15,13 +15,14 @@ return new class extends Migration
     {
         Schema::create('shells', function (Blueprint $table) {
             $table->id();
-            $table->string('shell');
-            $table->string('country');
-            $table->string('hosting');
-            $table->string('seo_rank');
-            $table->string('host_info');
-            $table->float('price');
-            $table->tinyInteger('status');
+            $table->string('shell')->nullable();
+            $table->string('source')->nullable();
+            $table->string('country')->nullable();
+            $table->string('hosting')->nullable();
+            $table->string('seo_rank')->nullable();
+            $table->string('host_info')->nullable();
+            $table->float('price')->nullable();
+            $table->tinyInteger('status')->nullable();
             $table->timestamps();
         });
     }

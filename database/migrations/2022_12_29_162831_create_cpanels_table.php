@@ -15,12 +15,15 @@ return new class extends Migration
     {
         Schema::create('cpanels', function (Blueprint $table) {
             $table->id();
-            $table->string('cpanel');
-            $table->string('country');
-            $table->string('hosting');
-            $table->string('seo_rank');
-            $table->float('price');
-            $table->tinyInteger('status');
+            $table->string('cpanel')->nullable();
+            $table->string('username')->nullable();
+            $table->string('password')->nullable();
+            $table->string('source')->nullable();
+            $table->string('country')->nullable();
+            $table->string('hosting')->nullable();
+            $table->string('seo_rank')->nullable();
+            $table->float('price')->nullable();
+            $table->tinyInteger('status')->nullable();
             $table->timestamps();
         });
     }

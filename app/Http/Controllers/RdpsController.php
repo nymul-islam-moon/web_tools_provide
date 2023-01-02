@@ -7,79 +7,59 @@ use Illuminate\Http\Request;
 
 class RdpsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        return view('Rdps.index',[
+            'rdps' => Rdps::all(),  ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('rdps.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $rdp = new Rdps();
+        $rdp->rdp = $request->rdp;
+        $rdp->username = $request->username;
+        $rdp->password = $request->password;
+        $rdp->guranteed = $request->guranteed;
+        $rdp->access = $request->access;
+        $rdp->source = $request->source;
+        $rdp->os = $request->os;
+        $rdp->rams = $request->rams;
+        $rdp->price = $request->price;
+        $rdp->save();
+        return redirect()->route('rdps.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Rdps  $rdps
-     * @return \Illuminate\Http\Response
-     */
     public function show(Rdps $rdps)
     {
-        //
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Rdps  $rdps
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Rdps $rdps)
+    public function edit(Rdps $rdp)
     {
-        //
+        return view('rdps.edit', ['rdps' => $rdp]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rdps  $rdps
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Rdps $rdps)
+    public function update(Request $request, Rdps $rdp)
     {
-        //
+        $rdp->rdp = $request->rdp;
+        $rdp->guranteed = $request->guranteed;
+        $rdp->access = $request->access;
+        $rdp->source = $request->source;
+        $rdp->os = $request->os;
+        $rdp->rams = $request->rams;
+        $rdp->price = $request->price;
+        $rdp->save();
+        return redirect()->route('rdps.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Rdps  $rdps
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Rdps $rdps)
+    public function destroy(Request $request, Rdps $rdp)
     {
-        //
+        $rdp->delete();
+        return redirect()->route('rdps.index');
     }
 }
