@@ -13,7 +13,7 @@
                         <h3 class="text-center">Add SMTPs</h3>
                     </div>
                     <div class="card-body">
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="{{route('add.smtp')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-2">
                                 <label class="form-label">Host</label>
@@ -37,10 +37,9 @@
 
                             <div class="mb-2">
                                 <label class="form-label fro">WebMail</label>
-                                <select name="type" id="" class="form-control" >
-                                    <option class="form-control" value="">WebMail 1</option>
-                                    <option class="form-control" value="">WebMail 2</option>
-                                    <option class="form-control" value="">WebMail 3</option>
+                                <select name="web_mail" id="" class="form-control" >
+                                    <option class="form-control" value="web_mail">Yes</option>
+                                    <option class="form-control" value="web_mail">No</option>
                                 </select>
                             </div>
 
@@ -89,11 +88,21 @@
                                     <td>{{$smtp->country}}</td>
                                     <td>{{$smtp->hosting}}</td>
                                     <td>{{$smtp->price}}</td>
-                                    <td>{{$smtp->status}}</td>
+                                    @if($smtp->status == 1)
+                                        <td>Enable</td>
+                                    @else
+                                        <td>Disable</td>
+                                    @endif
                                     <td>{{$smtp->added}}</td>
                                     <td>
-                                        <a href="" class="btn btn-primary btn-sm">Update</a>
-                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                        <a href="{{route('edit.smtp',['id' => $smtp->id])}}" class="btn btn-primary btn-sm">Update</a>
+                                        <form action="{{route('delete.smtp',['id'=>$smtp->id])}})}}" method="post" id="delete">
+                                            @csrf
+                                            <input type="hidden" value="{{$smtp->id}}">
+                                            <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('Are you sure??')">Delete
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

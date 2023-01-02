@@ -13,35 +13,36 @@
                         <h3 class="text-center">Add Cards</h3>
                     </div>
                     <div class="card-body">
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="{{route('add.card')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-2">
-                                <label class="form-label">Host</label>
-                                <input class="form-control" type="text" placeholder="Host" name="host">
+                                <label class="form-label">Security Type</label>
+                                <input class="form-control" type="text" placeholder="Security Type" name="security_type">
                             </div>
 
                             <div class="mb-2">
-                                <label class="form-label">Port</label>
-                                <input class="form-control" type="number" placeholder="Port" name="port">
+                                <label class="form-label">Card Number</label>
+                                <input class="form-control" type="number" placeholder="12345578917323" name="card_number">
                             </div>
 
                             <div class="mb-2">
-                                <label class="form-label">Username</label>
-                                <input class="form-control" type="text" placeholder="Username" name="username">
+                                <label class="form-label">Expiration</label>
+                                <input class="form-control" type="date" placeholder="03/02/23" name="expiration">
                             </div>
 
                             <div class="mb-2">
-                                <label class="form-label">Password</label>
-                                <input class="form-control" type="password" placeholder="Password" name="password">
+                                <label class="form-label">CVV</label>
+                                <input class="form-control" type="number" placeholder="365" name="cvv">
                             </div>
 
                             <div class="mb-2">
-                                <label class="form-label fro">WebMail</label>
-                                <select name="type" id="" class="form-control" >
-                                    <option class="form-control" value="">WebMail 1</option>
-                                    <option class="form-control" value="">WebMail 2</option>
-                                    <option class="form-control" value="">WebMail 3</option>
-                                </select>
+                                <label class="form-label">Available Info.</label>
+                                <textarea class="form-control" type="text" placeholder="Available Information" name="available_info"></textarea>
+                            </div>
+
+                            <div class="mb-2">
+                                <label class="form-label">All Information</label>
+                                <textarea class="form-control" type="text" placeholder="All Information" name="all_info"></textarea>
                             </div>
 
                             <div class="mb-2">
@@ -67,6 +68,7 @@
                         <h3 class="text-center">Cards Info</h3>
                     </div>
                     <div class="card-body">
+                        <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover">
                             <tr>
                                 <th>ID</th>
@@ -91,15 +93,26 @@
                                     <td>{{$card->all_info}}</td>
                                     <td>{{$card->country}}</td>
                                     <td>{{$card->price}}</td>
-                                    <td>{{$card->status}}</td>
+                                    @if($card->status == 1)
+                                        <td>Enable</td>
+                                    @else
+                                        <td>Disable</td>
+                                    @endif
                                     <td>{{$card->added}}</td>
                                     <td>
-                                        <a href="" class="btn btn-primary btn-sm">Update</a>
-                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                        <a href="{{route('edit.card',['id' => $card->id])}}" class="btn btn-primary btn-sm">Update</a>
+                                        <form action="{{route('delete.card',['id'=>$card->id])}})}}" method="post" id="delete">
+                                            @csrf
+                                            <input type="hidden" value="{{$card->id}}">
+                                            <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('Are you sure??')">Delete
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>

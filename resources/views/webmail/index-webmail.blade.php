@@ -13,15 +13,11 @@
                         <h3 class="text-center">Add WebMails</h3>
                     </div>
                     <div class="card-body">
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="{{route('add.webMail')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-2">
                                 <label class="form-label fro">Type</label>
-                                <select name="type" id="" class="form-control" >
-                                    <option class="form-control" value="">type1</option>
-                                    <option class="form-control" value="">type2</option>
-                                    <option class="form-control" value="">type3</option>
-                                </select>
+                                    <input class="form-control" type="text" placeholder="Enter Type" name="type">
                             </div>
 
                             <div class="mb-2">
@@ -76,16 +72,26 @@
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td>{{$webMail->username}}</td>
-                                    <td>{{$webMail->country}}</td>
+                                    <td></td>
                                     <td>{{$webMail->hosting}}</td>
                                     <td>{{$webMail->type}}</td>
                                     <td>{{$webMail->category}}</td>
                                     <td>{{$webMail->price}}</td>
-                                    <td>{{$webMail->status}}</td>
+                                    @if($webMail->status == 1)
+                                        <td>Enable</td>
+                                    @else
+                                        <td>Disable</td>
+                                    @endif
                                     <td>{{$webMail->added}}</td>
                                     <td>
-                                        <a href="" class="btn btn-primary btn-sm">Update</a>
-                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                        <a href="{{route('edit.webMail',['id'=>$webMail->id])}}" class="btn btn-primary btn-sm">Update</a>
+                                        <form action="{{route('delete.webMail',['id'=>$webMail->id])}})}}" method="post" id="delete">
+                                            @csrf
+                                            <input type="hidden" value="{{$webMail->id}}">
+                                            <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('Are you sure??')">Delete
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
