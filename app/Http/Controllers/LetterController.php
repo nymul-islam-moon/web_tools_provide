@@ -9,22 +9,43 @@ use Illuminate\Http\Request;
 
 class LetterController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function letterIndex(Request $request)
     {
         $letter = Letter::all();
-        return view('Letter.letter', compact('letter'));
+        return view('Letter.letter', [
+            'letters' => Letter::all()
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function saveLetter(Request $request)
+    {
+        Letter::saveLetter($request);
+        return redirect(route('letter'));
+    }
+
+    public function deleteLetter(Request $request)
+    {
+        $letter = Letter::find($request->letter_id);
+        $letter->delete();
+        return back();
+    }
+
+    public function editLetter($id)
+    {
+        return view('Letter.edit-letter', [
+            'letters' => Letter::find($id)
+        ]);
+    }
+
+    public function updateLetter(Request $request)
+    {
+        Letter::updateLetter($request);
+        return redirect(route('letter'));
+    }
+
+
+
+
     public function create()
     {
         //

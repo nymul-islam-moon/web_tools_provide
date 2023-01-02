@@ -1,5 +1,9 @@
 @extends('master')
 
+@section('title')
+    Script
+@endsection
+
 @section('content')
 
     <div class="container">
@@ -12,51 +16,68 @@
                 <button class="btn btn-info">Add Scripts/Programs</button>
             </div>
 
-            <div class="col-md-1">
-                <label class="form-label">Show</label>
-                <select class="form-select">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                </select>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="card shadow border-0 rounded-lg mt-3">
+                        <div class="card-header">
+                            <h3 class="text-center font-weight-light my-2">Add Scripts/Programs</h3>
+                        </div>
+                        <div class="card-body">
+                            <form action="{{route('saveScript')}}" method="post">
+                                @csrf
+
+                                <div class="form-floating mb-2">
+                                    <input class="form-control" name="script_name" type="text"
+                                           placeholder="Script Name"/>
+                                    <label>Name</label>
+                                </div>
+                                <div class="form-floating mb-2">
+                                    <input class="form-control" name="program_lang" type="text"
+                                           placeholder="Program Language"/>
+                                    <label>Program Language</label>
+                                </div>
+                                <div class="form-floating mb-2">
+                                    <input class="form-control" name="hits_link" type="text"
+                                           placeholder="Download Link"/>
+                                    <label>Download Link</label>
+                                </div>
+                                <div class="form-floating mb-2">
+                                    <input class="form-control" name="description" type="text"
+                                           placeholder="Fresh hits, Auto payment Bills..."/>
+                                    <label>Description</label>
+                                </div>
+                                <div class="form-floating mb-2">
+                                    <input class="form-control" name="proof" type="text"
+                                           placeholder="url"/>
+                                    <label>Proof</label>
+                                </div>
+                                <div class="form-floating mb-2">
+                                    <input class="form-control" name="selling_type" type="text"
+                                           placeholder="Selling Type"/>
+                                    <label>Selling Type</label>
+                                </div>
+                                <div class="form-floating mb-2">
+                                    <input class="form-control" name="instruction" type="text"
+                                           placeholder="Instructions (Optional)"/>
+                                    <label>Instructions (Optional)</label>
+                                </div>
+                                <div class="form-floating mb-2">
+                                    <input class="form-control" name="price" type="text"
+                                           placeholder="Price"/>
+                                    <label>Price</label>
+                                </div>
+                                <div class="mt-4 mb-0">
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary btn-sm">ADD</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <div class="col-md-2">
-                <label class="form-label">Status</label>
-                <select class="form-select">
-                    <option>Sold</option>
-                    <option>Unsold</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <label class="form-label">Type</label>
-                <select class="form-select">
-                    <option>All</option>
-                    <option>...</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <label class="form-label">Description:</label>
-                <input type="text" class="form-control">
-            </div>
-            <div class="col-md-1">
-                <label class="form-label">Price Min</label>
-                <input type="text" class="form-control" placeholder="$ Min">
-            </div>
-            <div class="col-md-1">
-                <label class="form-label">Price Max</label>
-                <input type="text" class="form-control" placeholder="$ Max">
-            </div>
-            <div class="col-md-2">
-                <label class="form-label">Search:</label>
-                <input type="text" class="form-control">
-            </div>
+
         </div>
 
         <div class="mt-5">
@@ -76,21 +97,37 @@
                 </thead>
                 <tbody>
                 @php $key=1; @endphp
-                @foreach ($script as $item)
+                @foreach ($scripts as $item)
                     <tr>
                         <td>{{ $key++ }}</td>
-                        <td>{{ $item->download_link }}</td>
-                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->hits_link }}</td>
+                        <td>{{ $item->script_name }}</td>
                         <td>{{ $item->description }}</td>
-                        <td>{{ $item->lang }}</td>
+                        <td>{{ $item->program_lang }}</td>
                         <td>{{ $item->price }}</td>
-                        <td>{{ $item->status }}</td>
-                        <td>{{ $item->ctreated_at }}</td>
+
+                        @if($item->status == 1)
+                            <td>Enable</td>
+                        @else
+                            <td>Disable</td>
+                        @endif
+
+                        <td>{{ $item->updated_at }}</td>
+                        <td>
+                            <a href="{{route('editScript',['id'=>$item->id])}}"
+                               class="btn btn-primary btn-sm">Update</a>
+                            <form action="{{route('deleteScript')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="script_id" value="{{$item->id}}">
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Are you sure delete this?')">Delete
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
         </div>
-
     </div>
 @endsection

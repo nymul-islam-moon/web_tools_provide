@@ -57,18 +57,33 @@ Route::get('/edit-lead/{id}', [LeadController::class, 'editLead'])->name('edit.l
 Route::post('/add-lead-smtp', [LeadController::class, 'saveEditLead'])->name('add.edit.lead');
 
 //---------------Account Controller--------------//
-Route::get('/account', [AccountController::class, 'accountIndex'])->name('account.index');
+Route::get('/account', [AccountController::class, 'accountIndex'])->name('account');
+Route::post('/saveAccount', [AccountController::class, 'saveAccount'])->name('saveAccount');
+Route::post('/deleteAccount', [AccountController::class, 'deleteAccount'])->name('deleteAccount');
+Route::post('/updateAccount', [AccountController::class, 'updateAccount'])->name('updateAccount');
+Route::get('/editAccount/{id}', [AccountController::class, 'editAccount'])->name('editAccount');
 
 //---------------Script Controller--------------//
-Route::get('/script', [ScriptController::class, 'scriptIndex'])->name('script.index');
+Route::get('/script', [ScriptController::class, 'scriptIndex'])->name('script');
+Route::post('/saveScript', [ScriptController::class, 'saveScript'])->name('saveScript');
+Route::post('/deleteScript', [ScriptController::class, 'deleteScript'])->name('deleteScript');
+Route::post('/updateScript', [ScriptController::class, 'updateScript'])->name('updateScript');
+Route::get('/editScript/{id}', [ScriptController::class, 'editScript'])->name('editScript');
 
 //---------------Letter Controller--------------//
-Route::get('/letter', [LetterController::class, 'letterIndex'])->name('letter.index');
+Route::get('/letter', [LetterController::class, 'letterIndex'])->name('letter');
+Route::post('/saveLetter', [LetterController::class, 'saveLetter'])->name('saveLetter');
+Route::post('/deleteLetter', [LetterController::class, 'deleteLetter'])->name('deleteLetter');
+Route::post('/updateLetter', [LetterController::class, 'updateLetter'])->name('updateLetter');
+Route::get('/editLetter/{id}', [LetterController::class, 'editLetter'])->name('editLetter');
 
 //---------------Tutorial Controller--------------//
-Route::get('/tutorial', [TutorialController::class, 'tutorialIndex'])->name('tutorial.index');
+Route::get('/tutorial', [TutorialController::class, 'tutorialIndex'])->name('tutorial');
+Route::post('/saveTutorial', [TutorialController::class, 'saveTutorial'])->name('saveTutorial');
+Route::post('/deleteTutorial', [TutorialController::class, 'deleteTutorial'])->name('deleteTutorial');
+Route::post('/updateTutorial', [TutorialController::class, 'updateTutorial'])->name('updateTutorial');
+Route::get('/editTutorial/{id}', [TutorialController::class, 'editTutorial'])->name('editTutorial');
 
-Route::get('/lufus', [LufixController::class, 'index'])->name('lufix.index');
 //});
 // End Product
 

@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('tutorials', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->nullable();
-            $table->string('download_link')->nullable();
-            $table->string('name')->nullable();
+            $table->string('tutorial_name')->nullable();
+            $table->string('hits_link')->nullable();
             $table->text('description')->nullable();
+            $table->string('proof')->nullable();
+            $table->string('selling_type')->nullable();
+            $table->string('instruction')->nullable();
             $table->float('price')->nullable();
-            $table->tinyInteger('status')->nullable();
+            $table->tinyInteger('status')->default(0)->comment('0 = Disable; 1 = Enable');
             $table->timestamps();
         });
     }
