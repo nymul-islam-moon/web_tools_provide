@@ -15,16 +15,18 @@ return new class extends Migration
     {
         Schema::create('rdps', function (Blueprint $table) {
             $table->id();
-            $table->string('rdp');
-            $table->string('location');
-            $table->string('guranteed');
-            $table->string('hosting');
-            $table->string('source');
-            $table->string('access');
-            $table->string('os');
-            $table->float('price');
-            $table->string('rams');
-            $table->tinyInteger('status');
+            $table->string('rdp')->nullable();
+            $table->string('username')->nullable();
+            $table->string('password')->nullable();
+            $table->string('location')->nullable();
+            $table->string('guranteed')->nullable();
+            $table->string('hosting')->nullable();
+            $table->string('source')->nullable();
+            $table->string('access')->nullable();
+            $table->string('os')->nullable();
+            $table->float('price')->nullable();
+            $table->string('rams')->nullable();
+            $table->tinyInteger('status')->nullable();
             $table->timestamps();
         });
     }

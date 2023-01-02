@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\SshWhm;
+use App\Models\SshWhms;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,6 +15,6 @@ class SshWhmSeeder extends Seeder
      */
     public function run()
     {
-        SshWhm::factory(20)->create();
+        SshWhms::factory(20)->create();
     }
 }

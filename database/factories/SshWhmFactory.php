@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SshWhm>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SshWhms>
  */
 class SshWhmFactory extends Factory
 {

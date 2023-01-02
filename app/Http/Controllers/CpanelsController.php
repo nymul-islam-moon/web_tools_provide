@@ -7,79 +7,53 @@ use Illuminate\Http\Request;
 
 class CpanelsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        return view('Cpanels.index',[
+            'cpanels' => Cpanels::all(),
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('cpanels.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $cpanel = new Cpanels();
+        $cpanel->cpanel = $request->cpanel;
+        $cpanel->username = $request->username;
+        $cpanel->password = $request->password;
+        $cpanel->source = $request->source;
+        $cpanel->price = $request->price;
+        $cpanel->save();
+        return redirect()->route('cpanels.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Cpanels  $cpanels
-     * @return \Illuminate\Http\Response
-     */
     public function show(Cpanels $cpanels)
     {
-        //
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Cpanels  $cpanels
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Cpanels $cpanels)
+    public function edit(Cpanels $cpanel)
     {
-        //
+        return view('cpanels.edit', ['cpanels' => $cpanel]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cpanels  $cpanels
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Cpanels $cpanels)
+    public function update(Request $request, Cpanels $cpanel)
     {
-        //
+        $cpanel->cpanel = $request->cpanel;
+        $cpanel->source = $request->source;
+        $cpanel->price = $request->price;
+        $cpanel->save();
+        return redirect()->route('cpanels.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Cpanels  $cpanels
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Cpanels $cpanels)
+    public function destroy(Request $request, Cpanels $cpanel)
     {
-        //
+        $cpanel->delete();
+        return redirect()->route('cpanels.index');
     }
 }

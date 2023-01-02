@@ -18,6 +18,7 @@ class ShellsFactory extends Factory
     {
         return [
             'shell'=>$this->faker->sentence(),
+            'source'=>$this->faker->word(),
             'country'=>$this->faker->country(),
             'hosting'=>$this->faker->country(),
             'seo_rank'=>$this->faker->word(),
