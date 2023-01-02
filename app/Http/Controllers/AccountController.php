@@ -42,6 +42,7 @@ class AccountController extends Controller
         return redirect(route('account'));
     }
 
+
     public function store(Request $request)
     {
         //

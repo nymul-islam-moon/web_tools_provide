@@ -25,8 +25,6 @@ use App\Http\Controllers\RdpsController;
 // Product
 //Route::group(['prefix' => '/product','as' => 'product.',], function () {
 
-Route::get('/', [LufixController::class, 'index'])->name('lufix.index');
-
 Route::get('/mailer', [MailerController::class, 'mailer'])->name('mailer');
 Route::post('/add-mailer', [MailerController::class, 'saveMailer'])->name('add.mailer');
 Route::post('/delete-mailer/{id}', [MailerController::class, 'deleteMailer'])->name('delete.mailer');
@@ -59,6 +57,13 @@ Route::post('/add-lead', [LeadController::class, 'saveLead'])->name('add.lead');
 Route::post('/delete-lead/{id}', [LeadController::class, 'deleteLead'])->name('delete.lead');
 Route::get('/edit-lead/{id}', [LeadController::class, 'editLead'])->name('edit.lead');
 Route::post('/add-lead-smtp', [LeadController::class, 'saveEditLead'])->name('add.edit.lead');
+
+//---------------Lufix Controller--------------//
+Route::get('/', [LufixController::class, 'lufixIndex'])->name('lufix');
+Route::post('/saveLufix', [LufixController::class, 'saveLufix'])->name('saveLufix');
+Route::post('/deleteLufix', [LufixController::class, 'deleteLufix'])->name('deleteLufix');
+Route::post('/updateLufix', [LufixController::class, 'updateLufix'])->name('updateLufix');
+Route::get('/editLufix/{id}', [LufixController::class, 'editLufix'])->name('editLufix');
 
 //---------------Account Controller--------------//
 Route::get('/account', [AccountController::class, 'accountIndex'])->name('account');
