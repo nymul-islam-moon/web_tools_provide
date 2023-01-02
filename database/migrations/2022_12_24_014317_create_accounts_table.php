@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->text('description')->nullable();
             $table->string('proof')->nullable();
             $table->float('price')->nullable();
-            $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('status')->default(0)->comment('0 = Disable; 1 = Enable');
             $table->timestamps();
         });
     }

@@ -104,7 +104,13 @@
                         <td>{{ $item->letter_name }}</td>
                         <td>{{ $item->description }}</td>
                         <td>{{ $item->price }}</td>
-                        <td>{{ $item->status }}</td>
+
+                        @if($item->status == 1)
+                            <td>Enable</td>
+                        @else
+                            <td>Disable</td>
+                        @endif
+
                         <td>{{ $item->updated_at }}</td>
                         <td>
                             <a href="{{route('editLetter',['id'=>$item->id])}}"

@@ -105,7 +105,13 @@
                         <td>{{ $item->description }}</td>
                         <td>{{ $item->program_lang }}</td>
                         <td>{{ $item->price }}</td>
-                        <td>{{ $item->status }}</td>
+
+                        @if($item->status == 1)
+                            <td>Enable</td>
+                        @else
+                            <td>Disable</td>
+                        @endif
+
                         <td>{{ $item->updated_at }}</td>
                         <td>
                             <a href="{{route('editScript',['id'=>$item->id])}}"
