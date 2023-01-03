@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Account
+    Lufix Service
 @endsection
 
 @section('content')

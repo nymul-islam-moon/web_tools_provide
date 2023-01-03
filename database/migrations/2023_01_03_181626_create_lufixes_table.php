@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('lufixes', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->nullable();
             $table->string('title')->nullable();
-            $table->tinyInteger('status')->nullable();
             $table->text('description')->nullable();
-            $table->float('price')->nullable();
-            $table->integer('duration')->nullable();
+            $table->string('proof')->nullable();
+            $table->string('selling_type')->nullable();
+            $table->string('duration')->nullable();
+            $table->string('price_type')->nullable();
+            $table->tinyInteger('status')->default(0)->comment('0 = Disable; 1 = Enable');
             $table->timestamps();
         });
     }
