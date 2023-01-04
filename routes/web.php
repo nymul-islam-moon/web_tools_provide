@@ -15,6 +15,7 @@ use App\Http\Controllers\ShellsController;
 use App\Http\Controllers\SshWhmsController;
 use App\Http\Controllers\CpanelsController;
 use App\Http\Controllers\RdpsController;
+use App\Http\Controllers\RequestedProductController;
 
 
 //Route::get('/', function () {
@@ -92,6 +93,12 @@ Route::post('/saveTutorial', [TutorialController::class, 'saveTutorial'])->name(
 Route::post('/deleteTutorial', [TutorialController::class, 'deleteTutorial'])->name('deleteTutorial');
 Route::post('/updateTutorial', [TutorialController::class, 'updateTutorial'])->name('updateTutorial');
 Route::get('/editTutorial/{id}', [TutorialController::class, 'editTutorial'])->name('editTutorial');
+
+//--------------- Requested Product----------------//
+Route::get('requested-product',[RequestedProductController::class,'RequestedProduct'])->name('requested.product');
+Route::post('requested-product',[RequestedProductController::class,'saveRequestedProduct'])->name('requested.product');
+Route::get('manage-requested-product',[RequestedProductController::class,'manageRequestedProduct'])->name('manage.requested.product');
+Route::get('change.status/{id}',[RequestedProductController::class,'changeStatus'])->name('change.status');
 
 //});
 // End Product
