@@ -8,14 +8,6 @@
 
     <div class="container">
         <div class="row mt-5">
-            <div class="button mb-4">
-                <button class="btn btn-info"><span>General</span></button>
-
-                <button class="btn btn-info">Added Service</button>
-
-                <button class="btn btn-info">Add Service</button>
-            </div>
-
 
             <div class="row justify-content-center">
                 <div class="col-md-10">
@@ -85,7 +77,7 @@
                 </thead>
                 <tbody>
                 @php $key=1; @endphp
-                @foreach ($lufixes as $item)
+                @foreach ($lufix_services as $item)
                     <tr>
                         <td>{{ $key++ }}</td>
                         <td>{{ $item->title }}</td>
@@ -105,7 +97,7 @@
                                class="btn btn-primary btn-sm">Update</a>
                             <form action="{{route('deleteLufix')}}" method="post">
                                 @csrf
-                                <input type="hidden" name="lufix_id" value="{{$item->id}}">
+                                <input type="hidden" name="lufix_services_id" value="{{$item->id}}">
                                 <button type="submit" class="btn btn-danger btn-sm"
                                         onclick="return confirm('Are you sure delete this?')">Delete
                                 </button>

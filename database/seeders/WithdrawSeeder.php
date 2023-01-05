@@ -2,15 +2,18 @@
 
 namespace Database\Seeders;
 
-use App\Models\Lufix;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class LufixSeeder extends Seeder
+class WithdrawSeeder extends Seeder
 {
-
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
     public function run()
     {
-        Lufix::factory(20)->create();
+        //
     }
 }

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\LufixController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailerController;
 use App\Http\Controllers\WebmailController;
@@ -16,13 +15,13 @@ use App\Http\Controllers\SshWhmsController;
 use App\Http\Controllers\CpanelsController;
 use App\Http\Controllers\RdpsController;
 use App\Http\Controllers\RequestedProductController;
-
-
+use App\Http\Controllers\SaleController;
+use App\Http\Controllers\WithdrawController;
+use App\Http\Controllers\LufixServiceController;
 
 
 // Product
 //Route::group(['prefix' => '/product','as' => 'product.',], function () {
-
 
 
 // Route::get('/x', function () {
@@ -31,9 +30,9 @@ use App\Http\Controllers\RequestedProductController;
 
 
 Route::controller(MailerController::class)->prefix('/mailer')->group(function () {
-    Route::get('/' ,'index')->name('mailer');
+    Route::get('/', 'index')->name('mailer');
     Route::post('/submit', 'create')->name('add.mailer');
-    Route::get('/edit/{id}' ,'edit')->name('edit.mailer');
+    Route::get('/edit/{id}', 'edit')->name('edit.mailer');
     Route::post('/update', 'update')->name('add.edit.mailer');
     Route::post('/delete/{id}', 'delete')->name('delete.mailer');
 });
@@ -68,54 +67,78 @@ Route::post('/delete-lead/{id}', [LeadController::class, 'deleteLead'])->name('d
 Route::get('/edit-lead/{id}', [LeadController::class, 'editLead'])->name('edit.lead');
 Route::post('/add-lead-smtp', [LeadController::class, 'saveEditLead'])->name('add.edit.lead');
 
-//---------------Lufix Controller--------------//
-Route::get('/', [LufixController::class, 'lufixIndex'])->name('lufix');
-Route::post('/saveLufix', [LufixController::class, 'saveLufix'])->name('saveLufix');
-Route::post('/deleteLufix', [LufixController::class, 'deleteLufix'])->name('deleteLufix');
-Route::post('/updateLufix', [LufixController::class, 'updateLufix'])->name('updateLufix');
-Route::get('/editLufix/{id}', [LufixController::class, 'editLufix'])->name('editLufix');
+//---------------Lufix Service Controller--------------//
+Route::controller(LufixServiceController::class)->prefix('/lufix')->group(function () {
+    Route::get('/', 'lufixIndex')->name('lufix');
+    Route::post('/saveLufix', 'saveLufix')->name('saveLufix');
+    Route::post('/deleteLufix', 'deleteLufix')->name('deleteLufix');
+    Route::post('/updateLufix', 'updateLufix')->name('updateLufix');
+    Route::get('/editLufix/{id}', 'editLufix')->name('editLufix');
+});
 
 //---------------Account Controller--------------//
-Route::get('/account', [AccountController::class, 'accountIndex'])->name('account');
-Route::post('/saveAccount', [AccountController::class, 'saveAccount'])->name('saveAccount');
-Route::post('/deleteAccount', [AccountController::class, 'deleteAccount'])->name('deleteAccount');
-Route::post('/updateAccount', [AccountController::class, 'updateAccount'])->name('updateAccount');
-Route::get('/editAccount/{id}', [AccountController::class, 'editAccount'])->name('editAccount');
+Route::controller(AccountController::class)->prefix('/')->group(function () {
+    Route::get('/', 'accountIndex')->name('account');
+    Route::post('/saveAccount', 'saveAccount')->name('saveAccount');
+    Route::post('/deleteAccount', 'deleteAccount')->name('deleteAccount');
+    Route::post('/updateAccount', 'updateAccount')->name('updateAccount');
+    Route::get('/editAccount/{id}', 'editAccount')->name('editAccount');
+});
 
 //---------------Script Controller--------------//
-Route::get('/script', [ScriptController::class, 'scriptIndex'])->name('script');
-Route::post('/saveScript', [ScriptController::class, 'saveScript'])->name('saveScript');
-Route::post('/deleteScript', [ScriptController::class, 'deleteScript'])->name('deleteScript');
-Route::post('/updateScript', [ScriptController::class, 'updateScript'])->name('updateScript');
-Route::get('/editScript/{id}', [ScriptController::class, 'editScript'])->name('editScript');
+Route::controller(ScriptController::class)->prefix('/script')->group(function () {
+    Route::get('/', 'scriptIndex')->name('script');
+    Route::post('/saveScript', 'saveScript')->name('saveScript');
+    Route::post('/deleteScript', 'deleteScript')->name('deleteScript');
+    Route::post('/updateScript', 'updateScript')->name('updateScript');
+    Route::get('/editScript/{id}', 'editScript')->name('editScript');
+});
+
 
 //---------------Letter Controller--------------//
-Route::get('/letter', [LetterController::class, 'letterIndex'])->name('letter');
-Route::post('/saveLetter', [LetterController::class, 'saveLetter'])->name('saveLetter');
-Route::post('/deleteLetter', [LetterController::class, 'deleteLetter'])->name('deleteLetter');
-Route::post('/updateLetter', [LetterController::class, 'updateLetter'])->name('updateLetter');
-Route::get('/editLetter/{id}', [LetterController::class, 'editLetter'])->name('editLetter');
+Route::controller(LetterController::class)->prefix('/letter')->group(function () {
+    Route::get('/', 'letterIndex')->name('letter');
+    Route::post('/saveLetter', 'saveLetter')->name('saveLetter');
+    Route::post('/deleteLetter', 'deleteLetter')->name('deleteLetter');
+    Route::post('/updateLetter', 'updateLetter')->name('updateLetter');
+    Route::get('/editLetter/{id}', 'editLetter')->name('editLetter');
+});
+
 
 //---------------Tutorial Controller--------------//
-Route::get('/tutorial', [TutorialController::class, 'tutorialIndex'])->name('tutorial');
-Route::post('/saveTutorial', [TutorialController::class, 'saveTutorial'])->name('saveTutorial');
-Route::post('/deleteTutorial', [TutorialController::class, 'deleteTutorial'])->name('deleteTutorial');
-Route::post('/updateTutorial', [TutorialController::class, 'updateTutorial'])->name('updateTutorial');
-Route::get('/editTutorial/{id}', [TutorialController::class, 'editTutorial'])->name('editTutorial');
+Route::controller(TutorialController::class)->prefix('/tutorial')->group(function () {
+    Route::get('/', 'tutorialIndex')->name('tutorial');
+    Route::post('/saveTutorial', 'saveTutorial')->name('saveTutorial');
+    Route::post('/deleteTutorial', 'deleteTutorial')->name('deleteTutorial');
+    Route::post('/updateTutorial', 'updateTutorial')->name('updateTutorial');
+    Route::get('/editTutorial/{id}', 'editTutorial')->name('editTutorial');
+});
+
+
+//---------------Sales Controller--------------//
+Route::controller(SaleController::class)->prefix('/sale')->group(function () {
+    Route::get('/', 'saleIndex')->name('sale');
+});
+
+//---------------Withdraw Controller--------------//
+Route::controller(WithdrawController::class)->prefix('/withdraw')->group(function () {
+    Route::get('/', 'withdrawIndex')->name('withdraw');
+});
+
 
 //--------------- Requested Product----------------//
-Route::get('requested-product',[RequestedProductController::class,'RequestedProduct'])->name('requested.product');
-Route::post('requested-product',[RequestedProductController::class,'saveRequestedProduct'])->name('requested.product');
-Route::get('manage-requested-product',[RequestedProductController::class,'manageRequestedProduct'])->name('manage.requested.product');
-Route::get('change.status/{id}',[RequestedProductController::class,'changeStatus'])->name('change.status');
+Route::get('requested-product', [RequestedProductController::class, 'RequestedProduct'])->name('requested.product');
+Route::post('requested-product', [RequestedProductController::class, 'saveRequestedProduct'])->name('requested.product');
+Route::get('manage-requested-product', [RequestedProductController::class, 'manageRequestedProduct'])->name('manage.requested.product');
+Route::get('change.status/{id}', [RequestedProductController::class, 'changeStatus'])->name('change.status');
 
 //});
+
+
+Route::resource('/product/shells', ShellsController::class);
+Route::resource('/product/cpanels', CpanelsController::class);
+Route::resource('/product/rdps', RdpsController::class);
+Route::resource('/product/sshwhm', SshWhmsController::class);
+
 // End Product
-
-Route::resource('/product/shells',ShellsController::class);
-Route::resource('/product/cpanels',CpanelsController::class);
-Route::resource('/product/rdps',RdpsController::class);
-Route::resource('/product/sshwhm',SshWhmsController::class);
-
-
 

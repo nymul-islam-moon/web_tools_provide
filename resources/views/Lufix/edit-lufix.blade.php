@@ -19,27 +19,27 @@
                                 @csrf
 
                                 <div class="form-floating mb-2">
-                                    <input type="hidden" name="lufix_id" value="{{ $lufixes->id }}">
+                                    <input type="hidden" name="lufix_services_id" value="{{ $lufix_services->id }}">
                                     <input class="form-control" name="title" type="text"
-                                           value="{{ $lufixes->title }}"
+                                           value="{{ $lufix_services->title }}"
                                            placeholder="Title"/>
                                     <label>Title</label>
                                 </div>
                                 <div class="form-floating mb-2">
                                     <input class="form-control" name="description" type="text"
-                                           value="{{ $lufixes->description }}"
+                                           value="{{ $lufix_services->description }}"
                                            placeholder="Fresh hits, Auto payment Bills..."/>
                                     <label>Description</label>
                                 </div>
                                 <div class="form-floating mb-2">
                                     <input class="form-control" name="duration" type="text"
-                                           value="{{ $lufixes->duration }}"
+                                           value="{{ $lufix_services->duration }}"
                                            placeholder=" Choose Hits Number"/>
                                     <label>Choose Hits Number</label>
                                 </div>
                                 <div class="form-floating mb-2">
                                     <input class="form-control" name="price_type" type="text"
-                                           value="{{ $lufixes->price_type }}"
+                                           value="{{ $lufix_services->price_type}}"
                                            placeholder="Price"/>
                                     <label>Price</label>
                                 </div>

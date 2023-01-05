@@ -8,13 +8,6 @@
 
     <div class="container">
         <div class="row mt-5">
-            <div class="button mb-4">
-                <button class="btn btn-info"><span>General</span></button>
-
-                <button class="btn btn-info">Added Tutorials/Methods</button>
-
-                <button class="btn btn-info">Add Tutorials/Methods</button>
-            </div>
 
             <div class="row justify-content-center">
                 <div class="col-md-10">
