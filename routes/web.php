@@ -31,13 +31,12 @@ use App\Http\Controllers\LufixServiceController;
 
 Route::controller(MailerController::class)->prefix('/mailer')->group(function () {
     Route::get('/', 'index')->name('mailer');
-    Route::post('/submit', 'create')->name('add.mailer');
+    Route::post('/store', 'store')->name('add.mailer');
     Route::get('/edit/{id}', 'edit')->name('edit.mailer');
-    Route::post('/update', 'update')->name('add.edit.mailer');
-    Route::post('/delete/{id}', 'delete')->name('delete.mailer');
+    Route::post('/update/{id}', 'update')->name('add.edit.mailer');
+    Route::post('/destroy/{id}', 'destroy')->name('delete.mailer');
 });
 
-// All of you follow this process for routuing.
 
 
 Route::get('/webmail', [WebmailController::class, 'webMail'])->name('webmail');

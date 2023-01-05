@@ -17,12 +17,22 @@
                             @csrf
                             <div class="mb-2">
                                 <label class="form-label">Mailer</label>
-                                <input class="form-control" type="text" placeholder="Mailer" name="mailer">
+                                <input required class="form-control" type="text" placeholder="Mailer" name="name">
+                                @error('name')
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Price</label>
-                                <input class="form-control" type="number" placeholder="Price" name="price">
+                                <input required class="form-control" type="number" placeholder="Price" name="price">
+                                @error('price')
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
 
                             <div class="mt-2">
@@ -55,14 +65,16 @@
                                 <th>Action</th>
                             </tr>
 
-                            @php $i=1 @endphp
-                            @foreach($mailers as $mailer)
+
+
+                            @foreach($mailers as $key=> $mailer)
                                 <tr>
-                                    <td>{{$i++}}</td>
-                                    <td>{{$mailer->mailer}}</td>
+                                    <td>{{ $key+1 }}</td>
+                                    <td>{{$mailer->name}}</td>
                                     <td>{{$mailer->country}}</td>
                                     <td>{{$mailer->hosting}}</td>
                                     <td>{{$mailer->price}}</td>
+
                                     @if($mailer->status == 1)
                                         <td>Enable</td>
                                     @else

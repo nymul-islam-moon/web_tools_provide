@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mailer_models', function (Blueprint $table) {
+        Schema::create('mailer', function (Blueprint $table) {
             $table->id();
-            $table->string('mailer');
+            $table->string('name');
             $table->double('price');
             $table->tinyInteger('status')->default(0)->comment('0 = disable; 1 = enable');
             $table->timestamps();
