@@ -17,13 +17,17 @@ use App\Http\Controllers\CpanelsController;
 use App\Http\Controllers\RdpsController;
 
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 
 
 // Product
 //Route::group(['prefix' => '/product','as' => 'product.',], function () {
+
+
+
+Route::get('/x', function () {
+   return view('test');
+});
+
 
 Route::get('/mailer', [MailerController::class, 'mailer'])->name('mailer');
 Route::post('/add-mailer', [MailerController::class, 'saveMailer'])->name('add.mailer');

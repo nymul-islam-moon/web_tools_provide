@@ -22,8 +22,6 @@
     <!-- DashForge CSS -->
     <link rel="stylesheet" href="{{ asset('dashboard/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('dashboard/assets/css/dashboard.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   </head>
   <body class="page-profile">
@@ -260,27 +258,25 @@
                 <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="file" class="wd-10 mg-r-5"></i> Generate Report</button>
             </div>
             </div>
-        @yield('content')
 
-    </div>
-    <!-- container -->
+        </div>
+      <!-- container -->
     </div>
     <!-- content -->
 
     <footer class="footer">
-    <div>
-    <span>&copy; 2022 Lucifer </span>
-    <span>Created by <a href="#">Shafiul Islam</a></span>
-    </div>
-    <div>
-    <nav class="nav">
-        <a href="#" class="nav-link">Smart Coder Lab</a>
-        <a href="#" class="nav-link">Get Help</a>
-    </nav>
-    </div>
+      <div>
+        <span>&copy; 2022 Lucifer </span>
+        <span>Created by <a href="#">Shafiul Islam</a></span>
+      </div>
+      <div>
+        <nav class="nav">
+          <a href="#" class="nav-link">Smart Coder Lab</a>
+          <a href="#" class="nav-link">Get Help</a>
+        </nav>
+      </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
     <script src="{{ asset('dashboard/assets/lib/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('dashboard/assets/lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -299,5 +295,5 @@
 
 
 
-    </body>
-    </html>
+  </body>
+</html>
