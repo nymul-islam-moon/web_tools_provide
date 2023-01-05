@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lufix extends Model
+class LufixService extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,7 @@ class Lufix extends Model
 
     public static function saveLufix($request)
     {
-        self::$lufix = new Lufix();
+        self::$lufix = new LufixService();
         self::$lufix->title = $request->title;
         self::$lufix->description = $request->description;
         self::$lufix->proof = $request->proof;
@@ -25,7 +25,7 @@ class Lufix extends Model
 
     public static function updateLufix($request)
     {
-        self::$lufix = Lufix::find($request->lufix_id);
+        self::$lufix = LufixService::find($request->lufix_services_id);
         self::$lufix->title = $request->title;
         self::$lufix->description = $request->description;
         self::$lufix->duration = $request->duration;
