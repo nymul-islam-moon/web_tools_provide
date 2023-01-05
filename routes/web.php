@@ -25,16 +25,21 @@ use App\Http\Controllers\RequestedProductController;
 
 
 
-Route::get('/x', function () {
-   return view('test');
+// Route::get('/x', function () {
+//    return view('test');
+// });
+
+
+Route::controller(MailerController::class)->prefix('/mailer')->group(function () {
+    Route::get('/' ,'index')->name('mailer');
+    Route::post('/submit', 'create')->name('add.mailer');
+    Route::get('/edit/{id}' ,'edit')->name('edit.mailer');
+    Route::post('/update', 'update')->name('add.edit.mailer');
+    Route::post('/delete/{id}', 'delete')->name('delete.mailer');
 });
 
+// All of you follow this process for routuing.
 
-Route::get('/mailer', [MailerController::class, 'mailer'])->name('mailer');
-Route::post('/add-mailer', [MailerController::class, 'saveMailer'])->name('add.mailer');
-Route::post('/delete-mailer/{id}', [MailerController::class, 'deleteMailer'])->name('delete.mailer');
-Route::get('/edit-mailer/{id}', [MailerController::class, 'editMailer'])->name('edit.mailer');
-Route::post('/add-edit-mailer', [MailerController::class, 'saveEditMailer'])->name('add.edit.mailer');
 
 Route::get('/webmail', [WebmailController::class, 'webMail'])->name('webmail');
 Route::post('/add-webmail', [WebmailController::class, 'saveWebMail'])->name('add.webMail');
