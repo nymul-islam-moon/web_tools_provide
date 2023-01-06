@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <div class="row row-xs">
+      {{-- <div class="row row-xs">
 
         <div class="col-lg-5 col-xl-5  mg-b-10">
           <div class="card">
@@ -224,9 +224,9 @@
           </div>
         </div>
 
-      </div>
+      </div> --}}
 
-      <div class="row row-xs">
+      {{-- <div class="row row-xs">
         <div class="col-md-6">
           <div class="card">
             <div class="card-header d-flex align-items-center justify-content-between">
@@ -383,10 +383,6 @@
                       <div class="chat_time pull-left">09:40PM</div>
                     </div>
                   </li>
-
-
-
-
                 </ul>
               </div><!--chat_area-->
               <div class="message_write">
@@ -400,10 +396,7 @@
             </div>
           </div>
         </div>
-      </div>
-
-
+      </div> --}}
     </div>
-    <!-- container -->
-  </div>
+</div>
 @endsection

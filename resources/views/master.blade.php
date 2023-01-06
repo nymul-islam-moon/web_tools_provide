@@ -243,7 +243,7 @@
     @yield('content')
 
     <!-- content -->
-
+{{--
     <footer class="footer">
       <div>
         <span>&copy; 2022 Lucifer </span>
@@ -255,7 +255,7 @@
           <a href="#" class="nav-link">Get Help</a>
         </nav>
       </div>
-    </footer>
+    </footer> --}}
 
 
     <script src="{{ asset('dashboard/assets/lib/jquery/jquery.min.js') }}"></script>
