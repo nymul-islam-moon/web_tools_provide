@@ -13,6 +13,7 @@ use App\Http\Controllers\TutorialController;
 use App\Http\Controllers\ShellsController;
 use App\Http\Controllers\SshWhmsController;
 use App\Http\Controllers\CpanelsController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RdpsController;
 use App\Http\Controllers\RequestedProductController;
 use App\Http\Controllers\SaleController;
@@ -27,6 +28,10 @@ use App\Http\Controllers\LufixServiceController;
 // Route::get('/x', function () {
 //    return view('test');
 // });
+
+Route::controller(DashboardController::class)->prefix('/')->group(function () {
+    Route::get('/', 'index')->name('dashboard.index');
+});
 
 
 Route::controller(MailerController::class)->prefix('/mailer')->group(function () {
@@ -76,7 +81,7 @@ Route::controller(LufixServiceController::class)->prefix('/lufix')->group(functi
 });
 
 //---------------Account Controller--------------//
-Route::controller(AccountController::class)->prefix('/')->group(function () {
+Route::controller(AccountController::class)->prefix('/account')->group(function () {
     Route::get('/', 'accountIndex')->name('account');
     Route::post('/saveAccount', 'saveAccount')->name('saveAccount');
     Route::post('/deleteAccount', 'deleteAccount')->name('deleteAccount');
