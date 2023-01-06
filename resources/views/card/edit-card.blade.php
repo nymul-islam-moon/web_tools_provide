@@ -35,40 +35,51 @@
                     <div class="card-body">
                         <form action="{{route('add.edit.card')}}" method="post" enctype="multipart/form-data">
                             @csrf
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <div class="mb-2">
                                 <label class="form-label">Security Type</label>
                                 <input class="form-control" type="hidden" name="card_id" value="{{$card->id}}">
-                                <input class="form-control" type="text" placeholder="Security Type" value="{{$card->security_type}}" name="security_type">
+                                <input required class="form-control" type="text" placeholder="Security Type" value="{{$card->security_type}}" name="security_type">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Card Number</label>
-                                <input class="form-control" type="number" placeholder="12345578917323" value="{{$card->card_number}}" name="card_number">
+                                <input required class="form-control" type="number" placeholder="12345578917323" value="{{$card->card_number}}" name="card_number">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Expiration</label>
-                                <input class="form-control" type="date" placeholder="03/02/23" value="{{$card->expiration}}"  name="expiration">
+                                <input required class="form-control" type="date" placeholder="03/02/23" value="{{$card->expiration}}"  name="expiration">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">CVV</label>
-                                <input class="form-control" type="number" value="{{$card->cvv}}" placeholder="365" name="cvv">
+                                <input required class="form-control" type="number" value="{{$card->cvv}}" placeholder="365" name="cvv">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Available Info.</label>
-                                <textarea class="form-control" type="text" placeholder="Available Information" name="available_info">{{$card->available_info}}</textarea>
+                                <textarea required class="form-control" type="text" placeholder="Available Information" name="available_info">{{$card->available_info}}</textarea>
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">All Information</label>
-                                <textarea class="form-control" type="text" placeholder="All Information" name="all_info">{{$card->all_info}}</textarea>
+                                <textarea required class="form-control" type="text" placeholder="All Information" name="all_info">{{$card->all_info}}</textarea>
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Price</label>
-                                <input class="form-control" type="number" placeholder="Price" value="{{$card->price}}" name="price">
+                                <input required class="form-control" type="number" placeholder="Price" value="{{$card->price}}" name="price">
                             </div>
 
                             <div class="mt-2">

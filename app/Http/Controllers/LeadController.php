@@ -48,6 +48,16 @@ class LeadController extends Controller
 
     public function saveEditLead(Request $request)
     {
+        $request->validate([
+            'download_link' => 'required',
+            'number' => 'required',
+            'type' => 'required',
+            'provider' => 'required',
+            'description' => 'required',
+            'proof' => 'required',
+            'country' => 'required',
+            'price' => 'required',
+        ]);
         Lead::saveEditLead($request);
         return redirect(route('lead'));
     }

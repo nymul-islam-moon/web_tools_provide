@@ -47,6 +47,15 @@ class CardController extends Controller
 
     public function saveEditCard(Request $request)
     {
+        $request->validate([
+            'security_type' => 'required',
+            'card_number' => 'required',
+            'expiration' => 'required',
+            'cvv' => 'required',
+            'available_info' => 'required',
+            'all_info' => 'required',
+            'price' => 'required',
+        ]);
         Card::saveEditCard($request);
         return redirect(route('card'));
     }

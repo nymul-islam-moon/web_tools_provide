@@ -34,25 +34,36 @@
                     <div class="card-body">
                         <form action="{{route('add.edit.smtp')}}" method="post" enctype="multipart/form-data">
                             @csrf
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <div class="mb-2">
                                 <label class="form-label">Host</label>
                                 <input class="form-control" type="hidden" name="smtp_id" value="{{$smtp->id}}">
-                                <input class="form-control" type="text" placeholder="Host" value="{{$smtp->host}}" name="host">
+                                <input required class="form-control" type="text" placeholder="Host" value="{{$smtp->host}}" name="host">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Port</label>
-                                <input class="form-control" type="number" placeholder="Port" value="{{$smtp->port}}" name="port">
+                                <input required class="form-control" type="number" placeholder="Port" value="{{$smtp->port}}" name="port">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Username</label>
-                                <input class="form-control" type="text" placeholder="Username" value="{{$smtp->username}}" name="username">
+                                <input required class="form-control" type="text" placeholder="Username" value="{{$smtp->username}}" name="username">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label fro">WebMail</label>
-                                <select name="web_mail" id="" class="form-control" >
+                                <select required name="web_mail" id="" class="form-control" >
                                     <option class="form-control" value="web_mail">Yes</option>
                                     <option class="form-control" value="web_mail">No</option>
                                 </select>
@@ -60,7 +71,7 @@
 
                             <div class="mb-2">
                                 <label class="form-label">Price</label>
-                                <input class="form-control" type="number" placeholder="Price" value="{{$smtp->price}}" name="price">
+                                <input required class="form-control" type="number" placeholder="Price" value="{{$smtp->price}}" name="price">
                             </div>
 
                             <div class="mt-2">

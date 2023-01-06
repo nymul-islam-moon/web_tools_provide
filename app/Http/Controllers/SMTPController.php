@@ -48,6 +48,13 @@ class SMTPController extends Controller
 
     public function saveEditSmtp(Request $request)
     {
+        $request->validate([
+            'host' => 'required',
+            'port' => 'required',
+            'username' => 'required',
+            'web_mail' => 'required',
+            'price' => 'required',
+        ]);
         SMTP::saveEditSmtp($request);
         return redirect(route('smtp'));
     }
