@@ -94,6 +94,7 @@
                                 </tr>
                             @endforeach
                         </table>
+                        {{ $rdps->links() }}
                     </div>
                 </div>
             </div>

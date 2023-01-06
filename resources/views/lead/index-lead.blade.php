@@ -144,6 +144,7 @@
                                 </tr>
                             @endforeach
                         </table>
+                        {{ $leads->links() }}
                         </div>
                     </div>
                 </div>

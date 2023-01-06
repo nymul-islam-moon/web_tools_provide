@@ -87,6 +87,7 @@
                                 </tr>
                             @endforeach
                         </table>
+                        {{ $cpanels->links() }}
                     </div>
                 </div>
             </div>

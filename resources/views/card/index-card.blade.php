@@ -132,6 +132,7 @@
                                 </tr>
                             @endforeach
                         </table>
+                        {{ $cards->links() }}
                         </div>
                     </div>
                 </div>

@@ -89,6 +89,7 @@
                                 </tr>
                             @endforeach
                         </table>
+                        {{ $shells->links() }}
                     </div>
                 </div>
             </div>

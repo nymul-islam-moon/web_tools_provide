@@ -9,7 +9,7 @@ class MailerController extends Controller
 {
     public function index()
     {
-        $mailers = MailerModel::all();
+        $mailers = MailerModel::paginate(5);
 
         return view('mailer.index-mailer',compact('mailers'));
     }

@@ -115,6 +115,7 @@
                                     </tr>
                                 @endforeach
                             </table>
+                            {{ $mailers->links() }}
                         </div>
                     </div>
                 </div>
@@ -123,7 +124,7 @@
 
 
 
-        
+
     </div>
 </div>
 @endsection
