@@ -22,7 +22,7 @@ class RequestedProductController extends Controller
     public function manageRequestedProduct()
     {
         return view('requested-product.manage-requested-product',[
-            'products' => RequestedProduct::all(),
+            'products' => RequestedProduct::paginate(5),
         ]);
     }
 

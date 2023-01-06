@@ -10,7 +10,7 @@ class AccountController extends Controller
 
     public function accountIndex(Request $request)
     {
-        $account = Account::all();
+        $account = Account::paginate(5);
         return view('Account.account', [
             'accounts' => Account::all()
         ]);

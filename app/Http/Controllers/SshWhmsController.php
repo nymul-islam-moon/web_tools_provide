@@ -11,7 +11,8 @@ class SshWhmsController extends Controller
     public function index()
     {
         return view('sshwhm.index',[
-            'sshwhms' => SshWhms::all(),  ]);
+            'sshwhms' => SshWhms::paginate(5),
+        ]);
     }
 
     public function create()

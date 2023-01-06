@@ -11,7 +11,7 @@ class ShellsController extends Controller
     public function index()
     {
         return view('shells.index',[
-            'shells' => Shells::all(),
+            'shells' => Shells::paginate(5),
         ]);
     }
 

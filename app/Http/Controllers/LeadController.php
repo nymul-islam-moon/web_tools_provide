@@ -11,7 +11,7 @@ class LeadController extends Controller
     public function lead()
     {
         return view('lead.index-lead',[
-            'leads' => Lead::all(),
+            'leads' => Lead::paginate(5),
         ]);
     }
 

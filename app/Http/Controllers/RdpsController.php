@@ -10,7 +10,8 @@ class RdpsController extends Controller
     public function index()
     {
         return view('Rdps.index',[
-            'rdps' => Rdps::all(),  ]);
+            'rdps' => Rdps::paginate(5),
+        ]);
     }
 
     public function create()

@@ -11,7 +11,7 @@ class ScriptController extends Controller
     {
         $script = Script::all();
         return view('Script.script', [
-            'scripts' => Script::all()
+            'scripts' => Script::paginate(5),
         ]);
     }
 

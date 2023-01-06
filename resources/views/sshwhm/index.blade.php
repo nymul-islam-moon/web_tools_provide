@@ -87,6 +87,7 @@
                                 </tr>
                             @endforeach
                         </table>
+                        {{ $sshwhms->links() }}
                     </div>
                 </div>
             </div>

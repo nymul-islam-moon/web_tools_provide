@@ -12,7 +12,7 @@ class LufixServiceController extends Controller
     {
         $lufix = LufixService::all();
         return view('Lufix.lufix', [
-            'lufix_services' => LufixService::all()
+            'lufix_services' => LufixService::paginate(5),
         ]);
     }
 

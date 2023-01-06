@@ -11,7 +11,7 @@ class WebmailController extends Controller
     public function webMail()
     {
         return view('webmail.index-webmail',[
-            'webMails' => Webmail::all(),
+            'webMails' => Webmail::paginate(5),
         ]);
     }
 

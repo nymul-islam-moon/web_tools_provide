@@ -11,7 +11,7 @@ class TutorialController extends Controller
     {
         $tutorial = Tutorial::all();
         return view('Tutorial.tutorial', [
-            'tutorials' => Tutorial::all()
+            'tutorials' => Tutorial::paginate(5),
         ]);
     }
 

@@ -11,7 +11,7 @@ class CpanelsController extends Controller
     public function index()
     {
         return view('Cpanels.index',[
-            'cpanels' => Cpanels::all(),
+            'cpanels' => Cpanels::paginate(5),
         ]);
     }
 

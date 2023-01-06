@@ -11,7 +11,7 @@ class SaleController extends Controller
     {
         $sale = Sale::all();
         return view('Sales.Sales.all-sales', [
-            'sales' => Sale::all()
+            'sales' => Sale::paginate(5),
         ]);
     }
 

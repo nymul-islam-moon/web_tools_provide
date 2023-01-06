@@ -126,6 +126,7 @@
                                 </tr>
                             @endforeach
                         </table>
+                        {{ $smtps->links() }}
                     </div>
                 </div>
             </div>

@@ -11,7 +11,7 @@ class WithdrawController extends Controller
     {
         $withdraw = Withdraw::all();
         return view('Sales.Withdraw.withdrawal', [
-            'withdraws' => Withdraw::all()
+            'withdraws' => Withdraw::paginate(5),
         ]);
     }
 }

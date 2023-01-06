@@ -13,7 +13,7 @@ class LetterController extends Controller
     {
         $letter = Letter::all();
         return view('Letter.letter', [
-            'letters' => Letter::all()
+            'letters' => Letter::paginate(5),
         ]);
     }
 

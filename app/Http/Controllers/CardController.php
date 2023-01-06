@@ -11,7 +11,7 @@ class CardController extends Controller
     public function card()
     {
         return view('card.index-card',[
-            'cards' => Card::all(),
+            'cards' => Card::paginate(5),
         ]);
     }
 

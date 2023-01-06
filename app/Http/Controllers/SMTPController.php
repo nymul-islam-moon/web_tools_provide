@@ -12,7 +12,7 @@ class SMTPController extends Controller
     public function smtp()
     {
         return view('smtp.index-smtp',[
-            'smtps' => SMTP::all(),
+            'smtps' => SMTP::paginate(5),
             'webMails' => Webmail::all(),
         ]);
     }

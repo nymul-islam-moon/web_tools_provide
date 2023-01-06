@@ -114,6 +114,7 @@
                                 </tr>
                             @endforeach
                         </table>
+                        {{ $webMails->links() }}
                     </div>
                 </div>
             </div>
