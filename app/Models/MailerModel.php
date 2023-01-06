@@ -10,7 +10,6 @@ class MailerModel extends Model
     use HasFactory;
 
     protected $table = 'mailer';
-
     protected $fillable = ['name','price'];
 }
 

@@ -17,6 +17,12 @@ class WebmailController extends Controller
 
     public function saveWebMail(Request $request)
     {
+        $request->validate([
+            'type' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+            'price' => 'required',
+        ]);
         Webmail::saveWebMail($request);
         return back();
     }

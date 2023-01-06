@@ -17,6 +17,15 @@ class CardController extends Controller
 
     public function saveCard(Request $request)
     {
+        $request->validate([
+            'security_type' => 'required',
+            'card_number' => 'required',
+            'expiration' => 'required',
+            'cvv' => 'required',
+            'available_info' => 'required',
+            'all_info' => 'required',
+            'price' => 'required',
+        ]);
         Card::saveCard($request);
         return back();
     }

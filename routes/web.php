@@ -43,33 +43,38 @@ Route::controller(MailerController::class)->prefix('/mailer')->group(function ()
 });
 
 
+Route::controller(WebmailController::class)->prefix('/webmail')->group(function () {
+Route::get('/', 'webMail')->name('webmail');
+Route::post('/add-webmail', 'saveWebMail')->name('add.webMail');
+Route::post('/delete-webMail/{id}', 'deleteWebMail')->name('delete.webMail');
+Route::get('/edit-webMail/{id}', 'editWebMail')->name('edit.webMail');
+Route::post('/add-edit-webMail', 'saveEditWebMail')->name('add.edit.webMail');
+});
 
-Route::get('/webmail', [WebmailController::class, 'webMail'])->name('webmail');
-Route::post('/add-webmail', [WebmailController::class, 'saveWebMail'])->name('add.webMail');
-Route::post('/delete-webMail/{id}', [WebmailController::class, 'deleteWebMail'])->name('delete.webMail');
-Route::get('/edit-webMail/{id}', [WebmailController::class, 'editWebMail'])->name('edit.webMail');
-Route::post('/add-edit-webMail', [WebmailController::class, 'saveEditWebMail'])->name('add.edit.webMail');
+Route::controller(SMTPController::class)->prefix('/smtp')->group(function () {
+Route::get('/',  'smtp')->name('smtp');
+Route::post('/add-smtp', 'saveSmtp')->name('add.smtp');
+Route::post('/delete-smtp/{id}', 'deleteSmtp')->name('delete.smtp');
+Route::get('/edit-smtp/{id}', 'editSmtp')->name('edit.smtp');
+Route::post('/add-edit-smtp', 'saveEditSmtp')->name('add.edit.smtp');
+});
 
+Route::controller(CardController::class)->prefix('/card')->group(function () {
+Route::get('/',  'card')->name('card');
+Route::post('/add-card',  'saveCard')->name('add.card');
+Route::post('/delete-card/{id}',  'deleteCard')->name('delete.card');
+Route::get('/edit-card/{id}',  'editCard')->name('edit.card');
+Route::post('/add-card-smtp',  'saveEditCard')->name('add.edit.card');
+});
 
-Route::get('/smtp', [SMTPController::class, 'smtp'])->name('smtp');
-Route::post('/add-smtp', [SMTPController::class, 'saveSmtp'])->name('add.smtp');
-Route::post('/delete-smtp/{id}', [SMTPController::class, 'deleteSmtp'])->name('delete.smtp');
-Route::get('/edit-smtp/{id}', [SMTPController::class, 'editSmtp'])->name('edit.smtp');
-Route::post('/add-edit-smtp', [SMTPController::class, 'saveEditSmtp'])->name('add.edit.smtp');
+Route::controller(LeadController::class)->prefix('/lead')->group(function () {
+Route::get('/','lead')->name('lead');
+Route::post('/add-lead','saveLead')->name('add.lead');
+Route::post('/delete-lead/{id}','deleteLead')->name('delete.lead');
+Route::get('/edit-lead/{id}','editLead')->name('edit.lead');
+Route::post('/add-lead-smtp','saveEditLead')->name('add.edit.lead');
+});
 
-
-Route::get('/card', [CardController::class, 'card'])->name('card');
-Route::post('/add-card', [CardController::class, 'saveCard'])->name('add.card');
-Route::post('/delete-card/{id}', [CardController::class, 'deleteCard'])->name('delete.card');
-Route::get('/edit-card/{id}', [CardController::class, 'editCard'])->name('edit.card');
-Route::post('/add-card-smtp', [CardController::class, 'saveEditCard'])->name('add.edit.card');
-
-
-Route::get('/lead', [LeadController::class, 'lead'])->name('lead');
-Route::post('/add-lead', [LeadController::class, 'saveLead'])->name('add.lead');
-Route::post('/delete-lead/{id}', [LeadController::class, 'deleteLead'])->name('delete.lead');
-Route::get('/edit-lead/{id}', [LeadController::class, 'editLead'])->name('edit.lead');
-Route::post('/add-lead-smtp', [LeadController::class, 'saveEditLead'])->name('add.edit.lead');
 
 //---------------Lufix Service Controller--------------//
 Route::controller(LufixServiceController::class)->prefix('/lufix')->group(function () {

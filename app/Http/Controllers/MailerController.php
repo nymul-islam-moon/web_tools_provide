@@ -11,17 +11,14 @@ class MailerController extends Controller
     {
         $mailers = MailerModel::paginate(5);
 
-        return view('mailer.index-mailer',compact('mailers'));
+        return view('mailer.index-mailer', compact('mailers'));
     }
+
     public function store(Request $request)
     {
         $formFields = $request->validate([
-            'name' => [
-                'required',
-            ],
-            'price' => [
-                'required',
-            ]
+            'name' => ['required',],
+            'price' => ['required',]
         ]);
 
         MailerModel::create($formFields);
@@ -32,7 +29,7 @@ class MailerController extends Controller
     public function edit($id)
     {
         $mailer = MailerModel::find($id);
-        return view('mailer.edit-mailer',compact('mailer'));
+        return view('mailer.edit-mailer', compact('mailer'));
     }
 
     public function update(Request $request, $id)
@@ -60,8 +57,6 @@ class MailerController extends Controller
         $mailer->delete();
         return back();
     }
-
-
 
 
 }
