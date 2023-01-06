@@ -35,43 +35,54 @@
                     <div class="card-body">
                         <form action="{{route('add.card')}}" method="post" enctype="multipart/form-data">
                             @csrf
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <div class="mb-2">
                                 <label class="form-label">Security Type</label>
-                                <input class="form-control" type="text" placeholder="Security Type" name="security_type">
+                                <input required class="form-control" type="text" placeholder="Security Type" name="security_type">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Card Number</label>
-                                <input class="form-control" type="number" placeholder="12345578917323" name="card_number">
+                                <input required class="form-control" type="number" placeholder="12345578917323" name="card_number">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Expiration</label>
-                                <input class="form-control" type="date" placeholder="03/02/23" name="expiration">
+                                <input required class="form-control" type="date" placeholder="03/02/23" name="expiration">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">CVV</label>
-                                <input class="form-control" type="number" placeholder="365" name="cvv">
+                                <input required class="form-control" type="number" placeholder="365" name="cvv">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Available Info.</label>
-                                <textarea class="form-control" type="text" placeholder="Available Information" name="available_info"></textarea>
+                                <textarea required class="form-control" type="text" placeholder="Available Information" name="available_info"></textarea>
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">All Information</label>
-                                <textarea class="form-control" type="text" placeholder="All Information" name="all_info"></textarea>
+                                <textarea required class="form-control" type="text" placeholder="All Information" name="all_info"></textarea>
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Price</label>
-                                <input class="form-control" type="number" placeholder="Price" name="price">
+                                <input required class="form-control" type="number" placeholder="Price" name="price">
                             </div>
 
                             <div class="mt-2">
-                                <input class="form-control btn btn-primary" type="submit" value="Submit" name="submit">
+                                <input required class="form-control btn btn-primary" type="submit" value="Submit" name="submit">
                             </div>
                         </form>
                     </div>
@@ -89,7 +100,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
+                        <table class="table table-striped table-bordered table-hover" style="text-align: center">
                             <tr>
                                 <th>ID</th>
                                 <th>Type</th>
@@ -120,19 +131,24 @@
                                     @endif
                                     <td>{{$card->added}}</td>
                                     <td>
-                                        <a href="{{route('edit.card',['id' => $card->id])}}" class="btn btn-primary btn-sm">Update</a>
-                                        <form action="{{route('delete.card',['id'=>$card->id])}})}}" method="post" id="delete">
-                                            @csrf
-                                            <input type="hidden" value="{{$card->id}}">
-                                            <button type="submit" class="btn btn-danger btn-sm"
-                                                    onclick="return confirm('Are you sure??')">Delete
-                                            </button>
-                                        </form>
+                                        <table style="margin-left: auto;margin-right: auto;">
+                                            <tr>
+                                                <td><a href="{{route('edit.card',['id' => $card->id])}}" class="btn btn-primary btn-sm">Update</a></td>
+                                                <td>&nbsp;</td>
+                                                <td><form action="{{route('delete.card',['id'=>$card->id])}})}}" method="post" id="delete">
+                                                        @csrf
+                                                        <input type="hidden" value="{{$card->id}}">
+                                                        <button type="submit" class="btn btn-danger btn-sm"
+                                                                onclick="return confirm('Are you sure??')">Delete
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </td>
                                 </tr>
                             @endforeach
                         </table>
-                        {{ $cards->links() }}
                         </div>
                     </div>
                 </div>

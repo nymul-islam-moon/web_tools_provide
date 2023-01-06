@@ -30,35 +30,46 @@
             <div class="col-md-8 offset-md-2 mt-3">
                 <div class="card mt-3">
                     <div class="card-header">
-                        <h3 class="text-center">Add Leads</h3>
+                        <h3 class="text-center">Edit Leads</h3>
                     </div>
                     <div class="card-body">
                         <form action="{{route('add.edit.lead')}}" method="post" enctype="multipart/form-data">
                             @csrf
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <div class="mb-2">
                                 <label class="form-label">Download Link</label>
                                 <input class="form-control" type="hidden" name="lead_id" value="{{$lead->id}}">
-                                <input class="form-control" type="text" placeholder="Download Link" name="download_link" value="{{$lead->download_link}}">
+                                <input required class="form-control" type="text" placeholder="Download Link" name="download_link" value="{{$lead->download_link}}">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Number</label>
-                                <input class="form-control" type="text" placeholder="Number" value="{{$lead->number}}" name="number">
+                                <input required class="form-control" type="text" placeholder="Number" value="{{$lead->number}}" name="number">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Type</label>
-                                <input class="form-control" type="text" placeholder="Type" value="{{$lead->type}}" name="type">
+                                <input required class="form-control" type="text" placeholder="Type" value="{{$lead->type}}" name="type">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Provider</label>
-                                <input class="form-control" type="text" placeholder="Provider" value="{{$lead->provider}}" name="provider">
+                                <input required class="form-control" type="text" placeholder="Provider" value="{{$lead->provider}}" name="provider">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Description</label>
-                                <textarea class="form-control" type="text" placeholder="Description" name="description">{{$lead->description}}</textarea>
+                                <textarea required class="form-control" type="text" placeholder="Description" name="description">{{$lead->description}}</textarea>
                             </div>
 
                             <div class="mb-2">
@@ -68,17 +79,17 @@
 
                             <div class="mb-2">
                                 <label class="form-label">Proof</label>
-                                <input class="form-control" type="text" placeholder="Proof" value="{{$lead->proof}}" name="proof">
+                                <input required class="form-control" type="text" placeholder="Proof" value="{{$lead->proof}}" name="proof">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Country</label>
-                                <input class="form-control" type="text" placeholder="Country" value="{{$lead->country}}" name="country">
+                                <input required class="form-control" type="text" placeholder="Country" value="{{$lead->country}}" name="country">
                             </div>
 
                             <div class="mb-2">
                                 <label class="form-label">Price</label>
-                                <input class="form-control" type="text" placeholder="Price" value="{{$lead->price}}" name="price">
+                                <input required class="form-control" type="text" placeholder="Price" value="{{$lead->price}}" name="price">
                             </div>
 
                             <div class="mt-2">

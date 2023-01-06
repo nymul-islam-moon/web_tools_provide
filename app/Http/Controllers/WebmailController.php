@@ -17,6 +17,12 @@ class WebmailController extends Controller
 
     public function saveWebMail(Request $request)
     {
+        $request->validate([
+            'type' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+            'price' => 'required',
+        ]);
         Webmail::saveWebMail($request);
         return back();
     }
@@ -38,6 +44,11 @@ class WebmailController extends Controller
 
     public function saveEditWebMail(Request $request)
     {
+        $request->validate([
+            'type' => 'required',
+            'username' => 'required',
+            'price' => 'required',
+        ]);
         Webmail::saveEditWebMail($request);
         return redirect(route('webmail'));
     }
