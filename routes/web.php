@@ -19,6 +19,8 @@ use App\Http\Controllers\RequestedProductController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\WithdrawController;
 use App\Http\Controllers\LufixServiceController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ServiceOrderController;
 
 
 // Product
@@ -136,13 +138,36 @@ Route::controller(WithdrawController::class)->prefix('/withdraw')->group(functio
 
 
 //--------------- Requested Product----------------//
-Route::get('requested-product', [RequestedProductController::class, 'RequestedProduct'])->name('requested.product');
-Route::post('requested-product', [RequestedProductController::class, 'saveRequestedProduct'])->name('requested.product');
-Route::get('manage-requested-product', [RequestedProductController::class, 'manageRequestedProduct'])->name('manage.requested.product');
-Route::get('change.status/{id}', [RequestedProductController::class, 'changeStatus'])->name('change.status');
+Route::controller(RequestedProductController::class)->prefix('/requested-product')->group(function () {
+Route::get('/',  'RequestedProduct')->name('requested.product');
+Route::post('requested-product',  'saveRequestedProduct')->name('requested.product');
+Route::get('manage-requested-product',  'manageRequestedProduct')->name('manage.requested.product');
+Route::get('change.status/{id}',  'changeStatus')->name('change.status');
+});
 
-//});
+// ------------ Pending Reports -------------------//
+Route::controller(ReportController::class)->prefix('/pending-reports')->group(function () {
+    Route::get('/',  'pendingReports')->name('pending.reports');
+    Route::post('add-pending-reports',  'savePendingReports')->name('add.pending.reports');
+});
 
+// ------------ Closed Reports -------------------//
+Route::controller(ReportController::class)->prefix('/closed-reports')->group(function () {
+    Route::get('/',  'closedReports')->name('closed.reports');
+    Route::post('add-closed-reports',  'saveClosedReports')->name('add.closed.reports');
+});
+
+// ------------ Pending Service Orders -------------------//
+Route::controller(ServiceOrderController::class)->prefix('/pending-service-orders')->group(function () {
+    Route::get('/',  'pendingServiceOrder')->name('pending.service.order');
+    Route::post('add-pending-service-order',  'savePendingServiceOrder')->name('add.pending.service.order');
+});
+
+// ------------ Closed Service Orders -------------------//
+Route::controller(ServiceOrderController::class)->prefix('/closed-service-orders')->group(function () {
+    Route::get('/',  'closedServiceOrder')->name('closed.service.order');
+    Route::post('add-closed-service-order',  'saveClosedServiceOrder')->name('add.closed.service.order');
+});
 
 Route::resource('/product/shells', ShellsController::class);
 Route::resource('/product/cpanels', CpanelsController::class);

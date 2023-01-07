@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="{{ asset('dashboard/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('dashboard/assets/css/dashboard.css') }}">
 
+
+
   </head>
   <body class="page-profile">
 
