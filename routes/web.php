@@ -19,13 +19,8 @@ use App\Http\Controllers\RequestedProductController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\WithdrawController;
 use App\Http\Controllers\LufixServiceController;
-<<<<<<< HEAD
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ServiceOrderController;
-
-=======
-use App\Http\Controllers\ReportsController;
->>>>>>> 3801a569db011ac4b2b7a41464d00a12a16dd108
 
 // Product
 //Route::group(['prefix' => '/product','as' => 'product.',], function () {
