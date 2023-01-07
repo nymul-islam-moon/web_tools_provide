@@ -180,5 +180,4 @@ Route::resource('/product/cpanels', CpanelsController::class);
 Route::resource('/product/rdps', RdpsController::class);
 Route::resource('/product/sshwhm', SshWhmsController::class);
 
-// End Product
 
