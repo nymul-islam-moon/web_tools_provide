@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Letter
+    Lucifer Project | Edit-Letter
 @endsection
 
 @section('content')

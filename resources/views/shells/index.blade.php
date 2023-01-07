@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Shells
+    Lucifer Project | Shells
 @endsection
 
 @section('content')

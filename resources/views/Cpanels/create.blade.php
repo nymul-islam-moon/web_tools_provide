@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Add Cpanels
+    Lucifer Project | Add Cpanels
 @endsection
 
 @section('content')
