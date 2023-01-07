@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mailer', function (Blueprint $table) {
+        Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->double('price');
-            $table->tinyInteger('status')->default(0)->comment('0 = disable; 1 = enable');
+            $table->string('item_type')->nullable();
+            $table->string('item')->nullable();
+            $table->string('price')->nullable();
+            $table->tinyInteger('status')->default(0);
+            $table->string('last_reply')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mailer');
+        Schema::dropIfExists('reports');
     }
 };

@@ -126,7 +126,7 @@
                                         <table>
                                             <tr>
                                                 <td>
-                                                    <a href="{{route('edit.smtp',['id' => $smtp->id])}}" class="btn btn-primary btn-sm">Update</a>
+                                                    <a href="{{route('edit.smtp',['id' => $smtp->id])}}" class="btn btn-primary btn-sm">Edit</a>
                                                 </td>
                                                 <td>&nbsp;</td>
                                                 <td>

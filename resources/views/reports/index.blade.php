@@ -32,7 +32,7 @@
             </div>
 
 
-            <div class="container">
+            {{-- <div class="container">
                 <div class="row">
                     <div class="col-md-8 offset-md-2 mt-3">
                         <div class="card mt-3">
@@ -73,38 +73,38 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 mt-3">
                         <div class="card mt-3">
                             <div class="card-header">
-                                <h3 class="text-center">Mailers Info</h3>
+                                <h3 class="text-center">Reports</h3>
                             </div>
                             <div class="card-body">
                                 <table class="table table-striped table-bordered table-hover text-center">
                                     <tr>
                                         <th>ID</th>
-                                        <th>Mailer</th>
-                                        <th>Country</th>
-                                        <th>Hosting</th>
+                                        <th>Item Type</th>
+                                        <th>Item</th>
+                                        <th>View</th>
                                         <th>Price</th>
                                         <th>Status</th>
-                                        <th>Added</th>
-                                        <th>Action</th>
+                                        <th>Reported On</th>
+                                        <th>Last Reply</th>
                                     </tr>
 
 
-                                    @foreach($mailers as $key=> $mailer)
+                                    @foreach($reports as $key=> $report)
                                         <tr>
                                             <td>{{ $key+1 }}</td>
-                                            <td>{{$mailer->name}}</td>
-                                            <td>{{$mailer->country}}</td>
-                                            <td>{{$mailer->hosting}}</td>
-                                            <td>{{$mailer->price}}</td>
+                                            <td>{{$report->item_type}}</td>
+                                            <td>{{$report->item}}</td>
+                                            <td>{{$report->price}}</td>
+                                            <td>{{$report->status}}</td>
 
-                                            @if($mailer->status == 1)
+                                            @if($report->status == 1)
                                                 <td>Enable</td>
                                             @else
                                                 <td>Disable</td>
@@ -136,7 +136,7 @@
                                         </tr>
                                     @endforeach
                                 </table>
-                                {{ $mailers->links() }}
+                                {{ $reports->links() }}
                             </div>
                         </div>
                     </div>

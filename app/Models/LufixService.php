@@ -9,6 +9,9 @@ class LufixService extends Model
 {
     use HasFactory;
 
+    protected $table = 'lufix_services';
+    protected $fillable = ['title', 'description', 'proof', 'selling_type', 'duration', 'price_type'];
+
     public static $lufix;
 
     public static function saveLufix($request)

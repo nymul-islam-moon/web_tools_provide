@@ -157,7 +157,7 @@
                                                         <tr>
                                                             <td>
                                                                 <a href="{{route('edit.lead',['id'=>$lead->id])}}"
-                                                                   class="btn btn-primary btn-sm">Update</a>
+                                                                   class="btn btn-primary btn-sm">Edit</a>
                                                             </td>
                                                             <td>&nbsp;</td>
                                                             <td>

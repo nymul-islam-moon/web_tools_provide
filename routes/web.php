@@ -19,9 +19,13 @@ use App\Http\Controllers\RequestedProductController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\WithdrawController;
 use App\Http\Controllers\LufixServiceController;
+<<<<<<< HEAD
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ServiceOrderController;
 
+=======
+use App\Http\Controllers\ReportsController;
+>>>>>>> 3801a569db011ac4b2b7a41464d00a12a16dd108
 
 // Product
 //Route::group(['prefix' => '/product','as' => 'product.',], function () {
@@ -46,35 +50,35 @@ Route::controller(MailerController::class)->prefix('/mailer')->group(function ()
 
 
 Route::controller(WebmailController::class)->prefix('/webmail')->group(function () {
-Route::get('/', 'webMail')->name('webmail');
-Route::post('/add-webmail', 'saveWebMail')->name('add.webMail');
-Route::post('/delete-webMail/{id}', 'deleteWebMail')->name('delete.webMail');
-Route::get('/edit-webMail/{id}', 'editWebMail')->name('edit.webMail');
-Route::post('/add-edit-webMail', 'saveEditWebMail')->name('add.edit.webMail');
+    Route::get('/', 'webMail')->name('webmail');
+    Route::post('/add-webmail', 'saveWebMail')->name('add.webMail');
+    Route::post('/delete-webMail/{id}', 'deleteWebMail')->name('delete.webMail');
+    Route::get('/edit-webMail/{id}', 'editWebMail')->name('edit.webMail');
+    Route::post('/add-edit-webMail', 'saveEditWebMail')->name('add.edit.webMail');
 });
 
 Route::controller(SMTPController::class)->prefix('/smtp')->group(function () {
-Route::get('/',  'smtp')->name('smtp');
-Route::post('/add-smtp', 'saveSmtp')->name('add.smtp');
-Route::post('/delete-smtp/{id}', 'deleteSmtp')->name('delete.smtp');
-Route::get('/edit-smtp/{id}', 'editSmtp')->name('edit.smtp');
-Route::post('/add-edit-smtp', 'saveEditSmtp')->name('add.edit.smtp');
+    Route::get('/', 'smtp')->name('smtp');
+    Route::post('/add-smtp', 'saveSmtp')->name('add.smtp');
+    Route::post('/delete-smtp/{id}', 'deleteSmtp')->name('delete.smtp');
+    Route::get('/edit-smtp/{id}', 'editSmtp')->name('edit.smtp');
+    Route::post('/add-edit-smtp', 'saveEditSmtp')->name('add.edit.smtp');
 });
 
 Route::controller(CardController::class)->prefix('/card')->group(function () {
-Route::get('/',  'card')->name('card');
-Route::post('/add-card',  'saveCard')->name('add.card');
-Route::post('/delete-card/{id}',  'deleteCard')->name('delete.card');
-Route::get('/edit-card/{id}',  'editCard')->name('edit.card');
-Route::post('/add-card-smtp',  'saveEditCard')->name('add.edit.card');
+    Route::get('/', 'card')->name('card');
+    Route::post('/add-card', 'saveCard')->name('add.card');
+    Route::post('/delete-card/{id}', 'deleteCard')->name('delete.card');
+    Route::get('/edit-card/{id}', 'editCard')->name('edit.card');
+    Route::post('/add-card-smtp', 'saveEditCard')->name('add.edit.card');
 });
 
 Route::controller(LeadController::class)->prefix('/lead')->group(function () {
-Route::get('/','lead')->name('lead');
-Route::post('/add-lead','saveLead')->name('add.lead');
-Route::post('/delete-lead/{id}','deleteLead')->name('delete.lead');
-Route::get('/edit-lead/{id}','editLead')->name('edit.lead');
-Route::post('/add-lead-smtp','saveEditLead')->name('add.edit.lead');
+    Route::get('/', 'lead')->name('lead');
+    Route::post('/add-lead', 'saveLead')->name('add.lead');
+    Route::post('/delete-lead/{id}', 'deleteLead')->name('delete.lead');
+    Route::get('/edit-lead/{id}', 'editLead')->name('edit.lead');
+    Route::post('/add-lead-smtp', 'saveEditLead')->name('add.edit.lead');
 });
 
 
@@ -126,14 +130,21 @@ Route::controller(TutorialController::class)->prefix('/tutorial')->group(functio
 });
 
 
+// Sales Groups
+
 //---------------Sales Controller--------------//
 Route::controller(SaleController::class)->prefix('/sale')->group(function () {
-    Route::get('/', 'saleIndex')->name('sale');
+    Route::get('/', 'saleIndex')->name('sale.index');
 });
 
 //---------------Withdraw Controller--------------//
 Route::controller(WithdrawController::class)->prefix('/withdraw')->group(function () {
-    Route::get('/', 'withdrawIndex')->name('withdraw');
+    Route::get('/', 'withdrawIndex')->name('withdraw.index');
+});
+
+// Reports
+Route::controller(ReportsController::class)->prefix('/reports')->group(function () {
+    Route::get('/', 'index')->name('report.index');
 });
 
 
