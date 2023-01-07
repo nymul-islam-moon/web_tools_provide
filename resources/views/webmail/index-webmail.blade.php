@@ -115,7 +115,7 @@
                                         <table>
                                             <tr>
                                                 <td>
-                                                    <a href="{{route('edit.webMail',['id'=>$webMail->id])}}" class="btn btn-primary btn-sm">Update</a>
+                                                    <a href="{{route('edit.webMail',['id'=>$webMail->id])}}" class="btn btn-primary btn-sm">Edit</a>
                                                 </td>
                                                 <td>&nbsp;</td>
                                                 <td>

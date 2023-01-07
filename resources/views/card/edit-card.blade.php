@@ -83,7 +83,7 @@
                             </div>
 
                             <div class="mt-2">
-                                <input class="form-control btn btn-primary" type="submit" value="Submit" name="submit">
+                                <input class="form-control btn btn-primary" type="submit" value="Update" name="submit">
                             </div>
                         </form>
                     </div>

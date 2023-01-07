@@ -9,6 +9,9 @@ class Script extends Model
 {
     use HasFactory;
 
+    protected $table = 'scripts';
+    protected $fillable = ['script_name', 'program_lang', 'hits_link', 'description', 'proof', 'selling_type', 'instruction', 'price'];
+
     public static $script;
 
     public static function saveScript($request)

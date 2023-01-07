@@ -9,6 +9,9 @@ class Account extends Model
 {
     use HasFactory;
 
+    protected $table = 'accounts';
+    protected $fillable = ['account_type', 'hits_link', 'website', 'price', 'description', 'source', 'country', 'proof'];
+
     public static $account;
 
     public static function saveAccount($request)

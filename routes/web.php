@@ -52,27 +52,27 @@ Route::controller(WebmailController::class)->prefix('/webmail')->group(function 
 });
 
 Route::controller(SMTPController::class)->prefix('/smtp')->group(function () {
-Route::get('/',  'smtp')->name('smtp');
-Route::post('/add-smtp', 'saveSmtp')->name('add.smtp');
-Route::post('/delete-smtp/{id}', 'deleteSmtp')->name('delete.smtp');
-Route::get('/edit-smtp/{id}', 'editSmtp')->name('edit.smtp');
-Route::post('/add-edit-smtp', 'saveEditSmtp')->name('add.edit.smtp');
+    Route::get('/', 'smtp')->name('smtp');
+    Route::post('/add-smtp', 'saveSmtp')->name('add.smtp');
+    Route::post('/delete-smtp/{id}', 'deleteSmtp')->name('delete.smtp');
+    Route::get('/edit-smtp/{id}', 'editSmtp')->name('edit.smtp');
+    Route::post('/add-edit-smtp', 'saveEditSmtp')->name('add.edit.smtp');
 });
 
 Route::controller(CardController::class)->prefix('/card')->group(function () {
-Route::get('/',  'card')->name('card');
-Route::post('/add-card',  'saveCard')->name('add.card');
-Route::post('/delete-card/{id}',  'deleteCard')->name('delete.card');
-Route::get('/edit-card/{id}',  'editCard')->name('edit.card');
-Route::post('/add-card-smtp',  'saveEditCard')->name('add.edit.card');
+    Route::get('/', 'card')->name('card');
+    Route::post('/add-card', 'saveCard')->name('add.card');
+    Route::post('/delete-card/{id}', 'deleteCard')->name('delete.card');
+    Route::get('/edit-card/{id}', 'editCard')->name('edit.card');
+    Route::post('/add-card-smtp', 'saveEditCard')->name('add.edit.card');
 });
 
 Route::controller(LeadController::class)->prefix('/lead')->group(function () {
-Route::get('/','lead')->name('lead');
-Route::post('/add-lead','saveLead')->name('add.lead');
-Route::post('/delete-lead/{id}','deleteLead')->name('delete.lead');
-Route::get('/edit-lead/{id}','editLead')->name('edit.lead');
-Route::post('/add-lead-smtp','saveEditLead')->name('add.edit.lead');
+    Route::get('/', 'lead')->name('lead');
+    Route::post('/add-lead', 'saveLead')->name('add.lead');
+    Route::post('/delete-lead/{id}', 'deleteLead')->name('delete.lead');
+    Route::get('/edit-lead/{id}', 'editLead')->name('edit.lead');
+    Route::post('/add-lead-smtp', 'saveEditLead')->name('add.edit.lead');
 });
 
 

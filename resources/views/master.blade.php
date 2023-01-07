@@ -72,20 +72,20 @@
           <li class="nav-item with-sub">
             <a href="" class="nav-link"><i class="fa-light fa-briefcase text-secondary"></i> My Products </a>
             <ul class="navbar-menu-sub">
-              <li class="nav-sub-item"><a href="#" class="nav-sub-link">LuFix Services <span class="badge badge-primary ml-2">256314</span></a></li>
+              <li class="nav-sub-item"><a href="{{route('lufix')}}" class="nav-sub-link">LuFix Services <span class="badge badge-primary ml-2">256314</span></a></li>
               <li class="nav-sub-item"><a href="#" class="nav-sub-link">Shells <span class="badge badge-primary ml-2">256314</span></a></li>
               <li class="nav-sub-item"><a href="#" class="nav-sub-link">cPanels <span class="badge badge-primary ml-2">256314</span></a></li>
               <li class="nav-sub-item"><a href="#" class="nav-sub-link">RDPs <span class="badge badge-primary ml-2">256314</span></a></li>
               <li class="nav-sub-item"><a href="#" class="nav-sub-link">SSH/WHM <span class="badge badge-primary ml-2">256314</span></a></li>
-              <li class="nav-sub-item"><a href="#" class="nav-sub-link">Mailers <span class="badge badge-primary ml-2">256314</span></a></li>
-              <li class="nav-sub-item"><a href="#" class="nav-sub-link">SMTPs <span class="badge badge-primary ml-2">256314</span></a></li>
-              <li class="nav-sub-item"><a href="#" class="nav-sub-link">Leads <span class="badge badge-primary ml-2">256314</span></a></li>
-              <li class="nav-sub-item"><a href="#" class="nav-sub-link">Cards <span class="badge badge-primary ml-2">256314</span></a></li>
-              <li class="nav-sub-item"><a href="#" class="nav-sub-link">Webmails <span class="badge badge-primary ml-2">256314</span></a></li>
-              <li class="nav-sub-item"><a href="#" class="nav-sub-link">Accounts <span class="badge badge-primary ml-2">256314</span></a></li>
-              <li class="nav-sub-item"><a href="#" class="nav-sub-link">Scripts/Programs <span class="badge badge-primary ml-2">256314</span></a></li>
-              <li class="nav-sub-item"><a href="#" class="nav-sub-link">Scam Pages/Letters <span class="badge badge-primary ml-2">256314</span></a></li>
-              <li class="nav-sub-item"><a href="#" class="nav-sub-link">Tutorials/Methods <span class="badge badge-primary ml-2">256314</span></a></li>
+              <li class="nav-sub-item"><a href="{{route('mailer')}}" class="nav-sub-link">Mailers <span class="badge badge-primary ml-2">256314</span></a></li>
+              <li class="nav-sub-item"><a href="{{route('smtp')}}" class="nav-sub-link">SMTPs <span class="badge badge-primary ml-2">256314</span></a></li>
+              <li class="nav-sub-item"><a href="{{route('lead')}}" class="nav-sub-link">Leads <span class="badge badge-primary ml-2">256314</span></a></li>
+              <li class="nav-sub-item"><a href="{{route('card')}}" class="nav-sub-link">Cards <span class="badge badge-primary ml-2">256314</span></a></li>
+              <li class="nav-sub-item"><a href="{{route('webmail')}}" class="nav-sub-link">Webmails <span class="badge badge-primary ml-2">256314</span></a></li>
+              <li class="nav-sub-item"><a href="{{route('account')}}" class="nav-sub-link">Accounts <span class="badge badge-primary ml-2">256314</span></a></li>
+              <li class="nav-sub-item"><a href="{{route('script')}}" class="nav-sub-link">Scripts/Programs <span class="badge badge-primary ml-2">256314</span></a></li>
+              <li class="nav-sub-item"><a href="{{route('letter')}}" class="nav-sub-link">Scam Pages/Letters <span class="badge badge-primary ml-2">256314</span></a></li>
+              <li class="nav-sub-item"><a href="{{route('tutorial')}}" class="nav-sub-link">Tutorials/Methods <span class="badge badge-primary ml-2">256314</span></a></li>
             </ul>
           </li>
 

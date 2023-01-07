@@ -9,6 +9,9 @@ class Letter extends Model
 {
     use HasFactory;
 
+    protected $table = 'letters';
+    protected $fillable = ['type', 'letter_name', 'hits_link', 'description', 'proof', 'selling_type', 'instruction', 'price'];
+
     public static $letter;
 
     public static function saveLetter($request)

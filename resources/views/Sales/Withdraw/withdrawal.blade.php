@@ -27,7 +27,7 @@
     <div class="container">
 
         <div class="mt-5">
-            <table class="table table-bordered">
+            <table class="table table-bordered" style="text-align: center">
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
