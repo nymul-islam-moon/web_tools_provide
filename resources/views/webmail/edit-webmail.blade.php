@@ -1,6 +1,6 @@
 @extends('master')
 @section('title')
-    Edit-WebMails
+    Lucifer Project | Edit-WebMails
 @endsection
 
 @section('content')

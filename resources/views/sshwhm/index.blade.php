@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    SSH/WHM
+    Lucifer Project | SSH/WHM
 @endsection
 
 @section('content')

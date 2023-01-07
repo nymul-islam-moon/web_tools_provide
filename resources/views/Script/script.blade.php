@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Script
+    Lucifer Project | Script
 @endsection
 
 @section('content')

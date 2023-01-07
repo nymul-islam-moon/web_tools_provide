@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Edit-Mailers
+    Lucifer Project | Edit-Mailers
 @endsection
 
 @section('content')

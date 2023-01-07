@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Edit-SMPTs
+    Lucifer Project | Edit-SMPTs
 @endsection
 
 @section('content')

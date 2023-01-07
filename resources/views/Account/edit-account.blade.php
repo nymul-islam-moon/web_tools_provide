@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Account
+    Lucifer Project | Edit-Account
 @endsection
 
 @section('content')
