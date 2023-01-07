@@ -19,7 +19,7 @@ use App\Http\Controllers\RequestedProductController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\WithdrawController;
 use App\Http\Controllers\LufixServiceController;
-
+use App\Http\Controllers\ReportsController;
 
 // Product
 //Route::group(['prefix' => '/product','as' => 'product.',], function () {
@@ -44,11 +44,11 @@ Route::controller(MailerController::class)->prefix('/mailer')->group(function ()
 
 
 Route::controller(WebmailController::class)->prefix('/webmail')->group(function () {
-Route::get('/', 'webMail')->name('webmail');
-Route::post('/add-webmail', 'saveWebMail')->name('add.webMail');
-Route::post('/delete-webMail/{id}', 'deleteWebMail')->name('delete.webMail');
-Route::get('/edit-webMail/{id}', 'editWebMail')->name('edit.webMail');
-Route::post('/add-edit-webMail', 'saveEditWebMail')->name('add.edit.webMail');
+    Route::get('/', 'webMail')->name('webmail');
+    Route::post('/add-webmail', 'saveWebMail')->name('add.webMail');
+    Route::post('/delete-webMail/{id}', 'deleteWebMail')->name('delete.webMail');
+    Route::get('/edit-webMail/{id}', 'editWebMail')->name('edit.webMail');
+    Route::post('/add-edit-webMail', 'saveEditWebMail')->name('add.edit.webMail');
 });
 
 Route::controller(SMTPController::class)->prefix('/smtp')->group(function () {
@@ -124,14 +124,21 @@ Route::controller(TutorialController::class)->prefix('/tutorial')->group(functio
 });
 
 
+// Sales Groups
+
 //---------------Sales Controller--------------//
 Route::controller(SaleController::class)->prefix('/sale')->group(function () {
-    Route::get('/', 'saleIndex')->name('sale');
+    Route::get('/', 'saleIndex')->name('sale.index');
 });
 
 //---------------Withdraw Controller--------------//
 Route::controller(WithdrawController::class)->prefix('/withdraw')->group(function () {
-    Route::get('/', 'withdrawIndex')->name('withdraw');
+    Route::get('/', 'withdrawIndex')->name('withdraw.index');
+});
+
+// Reports
+Route::controller(ReportsController::class)->prefix('/reports')->group(function () {
+    Route::get('/', 'index')->name('report.index');
 });
 
 
