@@ -133,7 +133,7 @@
                                     <td>
                                         <table style="margin-left: auto;margin-right: auto;">
                                             <tr>
-                                                <td><a href="{{route('edit.card',['id' => $card->id])}}" class="btn btn-primary btn-sm">Update</a></td>
+                                                <td><a href="{{route('edit.card',['id' => $card->id])}}" class="btn btn-primary btn-sm">Edit</a></td>
                                                 <td>&nbsp;</td>
                                                 <td><form action="{{route('delete.card',['id'=>$card->id])}})}}" method="post" id="delete">
                                                         @csrf

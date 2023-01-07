@@ -9,6 +9,9 @@ class Tutorial extends Model
 {
     use HasFactory;
 
+    protected $table = 'tutorials';
+    protected $fillable = ['tutorial_name', 'hits_link', 'description', 'proof', 'selling_type', 'instruction', 'price'];
+
     public static $tutorial;
 
     public static function saveTutorial($request)
