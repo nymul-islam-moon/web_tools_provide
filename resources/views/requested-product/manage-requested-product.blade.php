@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Manage Requested Product
+    Lucifer Project | Manage Requested Product
 @endsection
 
 @section('content')

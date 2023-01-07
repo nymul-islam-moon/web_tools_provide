@@ -14,7 +14,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('dashboard/assets/img/favicon.png') }}">
 
-    <title>Lucifer Project</title>
+    <title>@yield('title')</title>
 
     <!-- vendor css -->
     <link href="{{ asset('dashboard/assets/lib/fontawesome/css/all.min.css') }}" rel="stylesheet">
@@ -31,7 +31,7 @@
     <header class="navbar navbar-header navbar-header-fixed">
       <a href="" id="mainMenuOpen" class="burger-menu"><i class="fa-solid fa-bars"></i></a>
       <div class="navbar-brand">
-        <a href="#" class="df-logo">Luci<span>fer</span></a>
+        <a href="{{ route('dashboard.index') }}" class="df-logo">Luci<span>fer</span></a>
       </div><!-- navbar-brand -->
       <div id="navbarMenu" class="navbar-menu-wrapper">
         <div class="navbar-menu-header">
@@ -54,7 +54,7 @@
             <li class="nav-item with-sub">
                 <a href="" class="nav-link"><i class="fa-light fa-server text-warning"></i> General</a>
                 <ul class="navbar-menu-sub">
-                <li class="nav-sub-item"><a href="#" class="nav-sub-link"><i class="fa-light fa-server text-warning"></i> Dashboard </a></li>
+                <li class="nav-sub-item"><a href="{{ route('dashboard.index') }}" class="nav-sub-link"><i class="fa-light fa-server text-warning"></i> Dashboard </a></li>
                 {{-- <li class="nav-sub-item"><a href="#" class="nav-sub-link"> <i class="fa-brands fa-cpanel"></i> Requested Products <span class="badge badge-secondary ml-2">256314</span></a></li> --}}
                 {{-- <li class="nav-sub-item"><a href="#" class="nav-sub-link"><i class="fa-light fa-desktop"></i> SSH\WHM <span class="badge badge-secondary ml-2">256314</span></a></li>
                 <li class="nav-sub-item"><a href="#" class="nav-sub-link"><i class="fa-light fa-share-nodes"></i> RDP <span class="badge badge-secondary ml-2">256314</span></a></li> --}}

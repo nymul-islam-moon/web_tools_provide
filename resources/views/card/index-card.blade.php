@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Cards
+    Lucifer Project | Cards
 @endsection
 
 @section('content')

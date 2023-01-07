@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Update RDPs
+    Lucifer Project | Edit-RDPs
 @endsection
 
 @section('content')

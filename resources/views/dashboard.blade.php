@@ -1,6 +1,6 @@
 @extends('master')
 @section('title')
-    Dashboard
+    Lucifer Project | Dashboard
 @endsection
 
 @section('content')

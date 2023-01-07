@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    SMPTs
+    Lucifer Project | SMPTs
 @endsection
 
 @section('content')

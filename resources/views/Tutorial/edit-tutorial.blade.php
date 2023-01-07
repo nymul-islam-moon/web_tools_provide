@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Tutorial
+    Lucifer Project | Edit-Tutorial
 @endsection
 
 @section('content')

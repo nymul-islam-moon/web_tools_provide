@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Lufix Service
+    Lucifer Project | Lufix Service
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Update Shells
+    Lucifer Project | Edit-Shells
 @endsection
 
 @section('content')
