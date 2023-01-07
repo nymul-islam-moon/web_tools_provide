@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('item_type')->nullable();
             $table->string('item')->nullable();
             $table->string('price')->nullable();
-            $table->string('status')->nullable();
+            $table->tinyInteger('status')->default(0);
             $table->string('last_reply')->nullable();
             $table->timestamps();
         });

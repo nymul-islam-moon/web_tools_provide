@@ -96,15 +96,15 @@
                                     </tr>
 
 
-                                    @foreach($reports as $key=> $mailer)
+                                    @foreach($reports as $key=> $report)
                                         <tr>
                                             <td>{{ $key+1 }}</td>
-                                            <td>{{$mailer->name}}</td>
-                                            <td>{{$mailer->country}}</td>
-                                            <td>{{$mailer->hosting}}</td>
-                                            <td>{{$mailer->price}}</td>
+                                            <td>{{$report->item_type}}</td>
+                                            <td>{{$report->item}}</td>
+                                            <td>{{$report->price}}</td>
+                                            <td>{{$report->status}}</td>
 
-                                            @if($mailer->status == 1)
+                                            @if($report->status == 1)
                                                 <td>Enable</td>
                                             @else
                                                 <td>Disable</td>
