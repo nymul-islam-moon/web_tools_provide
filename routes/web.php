@@ -27,9 +27,9 @@ use App\Http\Controllers\ReportsController;
 //Route::group(['prefix' => '/product','as' => 'product.',], function () {
 
 
-// Route::get('/x', function () {
-//    return view('test');
-// });
+Route::get('/x', function () {
+   return view('master');
+});
 
 Route::controller(DashboardController::class)->prefix('/')->group(function () {
     Route::get('/', 'index')->name('dashboard.index');
