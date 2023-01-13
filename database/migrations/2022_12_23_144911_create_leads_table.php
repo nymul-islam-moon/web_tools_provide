@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
-            $table->string('download_link');
-            $table->string('number');
-            $table->string('type');
-            $table->string('provider');
-            $table->text('description');
-            $table->text('additional_info')->nullable();
-            $table->string('proof');
-            $table->string('country');
-            $table->double('price');
+            $table->string('link')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('type')->nullable();
+            $table->string('provider')->nullable();
+            $table->text('description')->nullable();
+            $table->text('additional_information')->nullable();
+            $table->string('proof')->nullable();
+            $table->string('country')->nullable();
+            $table->double('price')->nullable();
             $table->tinyInteger('status')->default(0)->comment('0 = disable; 1 = enable');
             $table->timestamps();
         });
