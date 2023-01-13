@@ -27,8 +27,8 @@ use App\Http\Controllers\ReportsController;
 //Route::group(['prefix' => '/product','as' => 'product.',], function () {
 
 
-Route::get('/x', function () {
-   return view('master');
+Route::get('/test', function (){
+    return view('test');
 });
 
 Route::controller(DashboardController::class)->prefix('/')->group(function () {
@@ -38,10 +38,10 @@ Route::controller(DashboardController::class)->prefix('/')->group(function () {
 
 Route::controller(MailerController::class)->prefix('/mailer')->group(function () {
     Route::get('/', 'index')->name('mailer');
-    Route::post('/store', 'store')->name('add.mailer');
+    Route::post('/store', 'store')->name('create.mailer');
     Route::get('/edit/{id}', 'edit')->name('edit.mailer');
-    Route::post('/update/{id}', 'update')->name('add.edit.mailer');
-    Route::post('/destroy/{id}', 'destroy')->name('delete.mailer');
+    Route::post('/update/{id}', 'update')->name('update.mailer');
+    Route::get('/destroy/{id}', 'destroy')->name('delete.mailer');
 });
 
 
@@ -69,9 +69,9 @@ Route::controller(CardController::class)->prefix('/card')->group(function () {
     Route::post('/add-card-smtp', 'saveEditCard')->name('add.edit.card');
 });
 
-Route::controller(LeadController::class)->prefix('/lead')->group(function () {
+Route::controller(LeadController::class)->prefix('/leads')->group(function () {
     Route::get('/', 'lead')->name('lead');
-    Route::post('/add-lead', 'saveLead')->name('add.lead');
+    Route::post('/create', 'create')->name('create.lead');
     Route::post('/delete-lead/{id}', 'deleteLead')->name('delete.lead');
     Route::get('/edit-lead/{id}', 'editLead')->name('edit.lead');
     Route::post('/add-lead-smtp', 'saveEditLead')->name('add.edit.lead');

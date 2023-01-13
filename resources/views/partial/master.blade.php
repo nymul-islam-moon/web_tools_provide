@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Gymove - Fitness Bootstrap Admin Dashboard</title>
+    <title>{{ config('app.name', 'Lufix') }}</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('dashboard/images/favicon.png') }}">
 	<link rel="stylesheet" href="{{ asset('dashboard/vendor/chartist/css/chartist.min.css') }}">
@@ -38,7 +38,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
+            <a href="{{ route('dashboard.index') }}" class="brand-logo">
                 <img class="logo-abbr" src="{{ asset('dashboard/images/logo.png') }}" alt="">
                 <img class="logo-compact" src="{{ asset('dashboard/images/logo-text.png') }}" alt="">
                 <img class="brand-title" src="{{ asset('dashboard/images/logo-text.png') }}" alt="">
@@ -773,12 +773,12 @@
 							<span class="nav-text">Dashboard</span>
 						</a>
                         <ul aria-expanded="false">
-							<li><a href="index.html">Dashboard</a></li>
-							<li><a href="workout-statistic.html">Workout Statistic</a></li>
+							<li><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+							{{-- <li><a href="workout-statistic.html">Workout Statistic</a></li>
 							<li><a href="workoutplan.html">Workout Plan</a></li>
 							<li><a href="distance-map.html">Distance Map</a></li>
 							<li><a href="food-menu.html">Diet Food Menu</a></li>
-							<li><a href="personal-record.html">Personal Record</a></li>
+							<li><a href="personal-record.html">Personal Record</a></li> --}}
 						</ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -786,8 +786,9 @@
 							<span class="nav-text">General</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="./app-profile.html">Profile</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
+                            <li><a href="./app-profile.html">Seller Guide</a></li>
+                            <li><a href="./app-profile.html">Requested Products</a></li>
+                            {{-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
                                 <ul aria-expanded="false">
                                     <li><a href="./email-compose.html">Compose</a></li>
                                     <li><a href="./email-inbox.html">Inbox</a></li>
@@ -805,7 +806,39 @@
 									<li><a href="./ecom-invoice.html">Invoice</a></li>
 									<li><a href="./ecom-customers.html">Customers</a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-television"></i>
+                            <span class="nav-text">Sales</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="./app-profile.html">Sales</a></li>
+                            <li><a href="./app-profile.html">Withdraw</a></li>
+                            <li><a href="./app-profile.html">Reports</a></li>
+                            <li><a href="./app-profile.html">Service Orders</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-television"></i>
+                            <span class="nav-text">My Products</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="./app-profile.html">LuFix Services</a></li>
+                            <li><a href="./app-profile.html">Shells</a></li>
+                            <li><a href="./app-profile.html">cPanels</a></li>
+                            <li><a href="./app-profile.html">RDPs</a></li>
+                            <li><a href="./app-profile.html">SSH/WHM</a></li>
+                            <li><a href="./app-profile.html">Mailers</a></li>
+                            <li><a href="./app-profile.html">SMTPs</a></li>
+                            <li><a href="./app-profile.html">Leads</a></li>
+                            <li><a href="./app-profile.html">Cards</a></li>
+                            <li><a href="./app-profile.html">WebMails</a></li>
+                            <li><a href="./app-profile.html">Accounts</a></li>
+                            <li><a href="./app-profile.html">Scripts/Programs</a></li>
+                            <li><a href="./app-profile.html">Scam Pages/Letters</a></li>
+                            <li><a href="./app-profile.html">Tutorials/Methods</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -926,7 +959,8 @@
         <div class="content-body">
             <!-- row -->
 			<div class="container-fluid">
-				<div class="row">
+                @yield('content')
+				{{-- <div class="row">
 					<div class="col-xl-6 col-xxl-12">
 						<div class="row">
 							<div class="col-sm-6">
@@ -1243,7 +1277,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> --}}
             </div>
         </div>
         <!--**********************************
@@ -1253,11 +1287,11 @@
         <!--**********************************
             Footer start
         ***********************************-->
-        <div class="footer">
+        {{-- <div class="footer">
             <div class="copyright">
                 <p>Copyright © Designed &amp; Developed by <a href="http://dexignzone.com/" target="_blank">DexignZone</a> 2020</p>
             </div>
-        </div>
+        </div> --}}
         <!--**********************************
             Footer end
         ***********************************-->

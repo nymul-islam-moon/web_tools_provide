@@ -15,8 +15,9 @@ class LeadController extends Controller
         ]);
     }
 
-    public function saveLead(Request $request)
+    public function create(Request $request)
     {
+        dd('hi');
         $request->validate([
             'download_link' => 'required',
             'number' => 'required',
