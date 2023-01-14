@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 class WebmailController extends Controller
 {
     public $webMail;
-    public function webMail()
+    public function index()
     {
         return view('webmail.index-webmail',[
             'webMails' => Webmail::paginate(5),
         ]);
     }
 
-    public function saveWebMail(Request $request)
+    public function create(Request $request)
     {
         $request->validate([
             'type' => 'required',
@@ -27,14 +27,8 @@ class WebmailController extends Controller
         return back();
     }
 
-    public function deleteWebMail($id)
-    {
-        $this->webMail = Webmail::find($id);
-        $this->webMail->delete();
-        return back();
-    }
 
-    public function editWebMail($id)
+    public function edit($id)
     {
         $this->webMail = Webmail::find($id);
         return view('webmail.edit-webmail',[
@@ -42,7 +36,7 @@ class WebmailController extends Controller
         ]);
     }
 
-    public function saveEditWebMail(Request $request)
+    public function update(Request $request)
     {
         $request->validate([
             'type' => 'required',
@@ -51,5 +45,12 @@ class WebmailController extends Controller
         ]);
         Webmail::saveEditWebMail($request);
         return redirect(route('webmail'));
+    }
+
+    public function destroy($id)
+    {
+        $this->webMail = Webmail::find($id);
+        $this->webMail->delete();
+        return back();
     }
 }

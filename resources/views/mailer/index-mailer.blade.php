@@ -13,10 +13,11 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Add Mailers</h4>
+
             </div>
             <div class="card-body">
                 <div class="basic-form">
-                    <form action="{{route('create.mailer')}}" method="POST">
+                    <form action="{{route('mailer.store')}}" method="POST">
                         @csrf
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Mailer Name</label>
@@ -88,8 +89,12 @@
                                                 <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
                                             </button>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="{{ route('edit.mailer', $item->id) }}">Edit</a>
-                                                <a class="dropdown-item" href="{{ route('delete.mailer', $item->id) }}">Delete</a>
+                                                <a class="dropdown-item" href="{{ route('mailer.edit', $item->id) }}">Edit</a>
+                                                <form action="{{ route('mailer.destroy', $item->id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="dropdown-item">Delete</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </td>
@@ -97,6 +102,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $mailers->links() }}
                 </div>
             </div>
         </div>

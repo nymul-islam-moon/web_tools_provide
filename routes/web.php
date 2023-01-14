@@ -37,11 +37,11 @@ Route::controller(DashboardController::class)->prefix('/')->group(function () {
 
 
 Route::controller(MailerController::class)->prefix('/mailer')->group(function () {
-    Route::get('/', 'index')->name('mailer');
-    Route::post('/store', 'store')->name('create.mailer');
-    Route::get('/edit/{id}', 'edit')->name('edit.mailer');
-    Route::post('/update/{id}', 'update')->name('update.mailer');
-    Route::get('/destroy/{id}', 'destroy')->name('delete.mailer');
+    Route::get('/', 'index')->name('mailer.index');
+    Route::post('/', 'store')->name('mailer.store');
+    Route::get('/{mailer}/edit', 'edit')->name('mailer.edit');
+    Route::put('/{mailer}/update', 'update')->name('mailer.update');
+    Route::delete('/{mailer}/destroy', 'destroy')->name('mailer.destroy');
 });
 
 
@@ -89,11 +89,11 @@ Route::controller(LufixServiceController::class)->prefix('/lufix')->group(functi
 
 //---------------Account Controller--------------//
 Route::controller(AccountController::class)->prefix('/account')->group(function () {
-    Route::get('/', 'accountIndex')->name('account');
-    Route::post('/saveAccount', 'saveAccount')->name('saveAccount');
-    Route::post('/deleteAccount', 'deleteAccount')->name('deleteAccount');
-    Route::post('/updateAccount', 'updateAccount')->name('updateAccount');
-    Route::get('/editAccount/{id}', 'editAccount')->name('editAccount');
+    Route::get('/', 'index')->name('account.index');
+    Route::post('/', 'store')->name('account.store');
+    Route::get('/{account}/edit', 'edit')->name('account.edit');
+    Route::put('/{account}/update', 'update')->name('account.update');
+    Route::delete('/{account}/destroy', 'destroy')->name('account.destroy');
 });
 
 //---------------Script Controller--------------//

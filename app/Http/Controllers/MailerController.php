@@ -2,61 +2,42 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MailerModel;
+use App\Http\Requests\Mailer\CreateMailerRequest;
+use App\Http\Requests\Mailer\UpdateMailerRequest;
+use App\Models\Mailer;
 use Illuminate\Http\Request;
 
 class MailerController extends Controller
 {
     public function index()
     {
-        $mailers = MailerModel::paginate(5);
+        $mailers = Mailer::latest()->paginate(5);
 
         return view('mailer.index-mailer', compact('mailers'));
     }
 
-    public function store(Request $request)
+    public function store(CreateMailerRequest $request)
     {
-        $formFields = $request->validate([
-            'name' => ['required',],
-            'price' => ['required',]
-        ]);
-
-        MailerModel::create($formFields);
-
-        return back();
+        $formdata = $request->validated();
+        Mailer::create($formdata);
+        return back()->with('create', 'Mailer created successfully');
     }
 
-    public function edit($id)
+    public function edit(Mailer $mailer)
     {
-        $mailer = MailerModel::find($id);
         return view('mailer.edit-mailer', compact('mailer'));
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateMailerRequest $request,Mailer $mailer)
     {
-
-        $formFields = $request->validate([
-            'name' => [
-                'required',
-            ],
-            'price' => [
-                'required',
-            ]
-        ]);
-
-        $mailer = MailerModel::find($id);
-        $mailer->update($formFields);
-
-        return redirect(route('mailer'));
+        $formdata = $request->validated();
+        $mailer->update($formdata);
+        return redirect(route('mailer.index'))->with('update', 'Mailer updated successfully');
     }
 
-    public function destroy($id)
+    public function destroy(Mailer $mailer)
     {
-
-        $mailer = MailerModel::find($id);
         $mailer->delete();
-        return back();
+        return back()->with('destroy', 'Mailer deleted successfully');
     }
-
-
 }

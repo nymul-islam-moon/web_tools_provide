@@ -2,73 +2,46 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Account\CreateAccountRequest;
+use App\Http\Requests\Account\UpdateAccountRequest;
 use App\Models\Account;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
 
-    public function accountIndex(Request $request)
+    public function index(Request $request)
     {
-        $account = Account::paginate(5);
-        return view('Account.account', [
-            'accounts' => Account::all()
-        ]);
+        $accounts = Account::latest()->paginate(5);
+
+        return view('account.index', compact('accounts'));
     }
 
-    public function saveAccount(Request $request)
+    public function store(CreateAccountRequest $request)
     {
-        Account::saveAccount($request);
-        return redirect(route('account'));
+        $formdata = $request->validated();
+        $formdata['status'] = 1;
+        Account::create($formdata);
+        return back()->with('create', 'Account created successfully');
     }
 
-    public function deleteAccount(Request $request)
-    {
-        $account = Account::find($request->account_id);
-        $account->delete();
-        return back();
-    }
-
-    public function editAccount($id)
-    {
-        return view('Account.edit-account', [
-            'accounts' => Account::find($id)
-        ]);
-    }
-
-    public function updateAccount(Request $request)
-    {
-        Account::updateAccount($request);
-        return redirect(route('account'));
-    }
-
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-
-    public function show(Account $account)
-    {
-        //
-    }
 
 
     public function edit(Account $account)
     {
-        //
+        return view('account.edit', compact('account'));
     }
 
-
-    public function update(Request $request, Account $account)
+    public function update(UpdateAccountRequest $request,Account $account)
     {
-        //
+        $formdata = $request->validated();
+        $account->update($formdata);
+        return redirect(route('account.index'))->with('update', 'Account updated successfully');
     }
-
 
     public function destroy(Account $account)
     {
-        //
+        $account->delete();
+        return back()->with('destroy', 'Account deleted successfully');
     }
 }

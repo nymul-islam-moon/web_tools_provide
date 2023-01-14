@@ -16,12 +16,13 @@
             </div>
             <div class="card-body">
                 <div class="basic-form">
-                    <form action="{{route('update.mailer', $mailer->id)}}" method="POST">
+                    <form action="{{ route('mailer.update', $mailer->id) }}" method="post">
                         @csrf
+                        @method('PUT')
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Mailer Name</label>
                             <div class="col-sm-9">
-                                <input type="text" name="name" class="form-control" placeholder="Mailer Name" value="{{ $mailer->name }}">
+                                <input required type="text" name="name" class="form-control" placeholder="Mailer Name" value="{{ $mailer->name }}">
                                 @error('name')
                                     <div class="alert alert-danger alert-dismissible fade show">
                                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
@@ -36,7 +37,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Price</label>
                             <div class="col-sm-9">
-                                <input type="number" name="price" class="form-control" placeholder="Price" value="{{ $mailer->price }}">
+                                <input required type="number" name="price" class="form-control" placeholder="Price" value="{{ $mailer->price }}">
                                 @error('price')
                                 <div class="alert alert-danger alert-dismissible fade show">
                                     <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
