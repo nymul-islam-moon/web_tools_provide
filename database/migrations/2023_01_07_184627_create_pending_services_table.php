@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('pending_services', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->double('price');
+            $table->string('title')->nullable();
+            $table->double('price')->nullable();
             $table->tinyInteger('status')->default(1)->comment('1 = Processed; 0 = Completed');
             $table->timestamps();
         });

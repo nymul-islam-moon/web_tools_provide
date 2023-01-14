@@ -13,7 +13,7 @@ class MailerController extends Controller
     {
         $mailers = Mailer::latest()->paginate(5);
 
-        return view('mailer.index-mailer', compact('mailers'));
+        return view('mailer.index', compact('mailers'));
     }
 
     public function store(CreateMailerRequest $request)
@@ -25,7 +25,7 @@ class MailerController extends Controller
 
     public function edit(Mailer $mailer)
     {
-        return view('mailer.edit-mailer', compact('mailer'));
+        return view('mailer.edit', compact('mailer'));
     }
 
     public function update(UpdateMailerRequest $request,Mailer $mailer)

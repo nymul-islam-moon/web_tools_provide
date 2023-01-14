@@ -2,61 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Card\CreateCardRequest;
+use App\Http\Requests\Card\UpdateCardRequest;
 use App\Models\Card;
-use Illuminate\Http\Request;
 
 class CardController extends Controller
 {
-    public $card;
-    public function card()
+    public function index()
     {
-        return view('card.index-card',[
-            'cards' => Card::paginate(5),
-        ]);
+        $cards = Card::latest()->paginate(5);
+
+        return view('card.index', compact('cards'));
     }
 
-    public function saveCard(Request $request)
+    public function store(CreateCardRequest $request)
     {
-        $request->validate([
-            'security_type' => 'required',
-            'card_number' => 'required',
-            'expiration' => 'required',
-            'cvv' => 'required',
-            'available_info' => 'required',
-            'all_info' => 'required',
-            'price' => 'required',
-        ]);
-        Card::saveCard($request);
-        return back();
+        $formdata = $request->validated();
+        Card::create($formdata);
+        return back()->with('create', 'Card created successfully');
     }
 
-    public function deleteCard($id)
+    public function edit(Card $card)
     {
-        $this->card = Card::find($id);
-        $this->card->delete();
-        return back();
+        return view('card.edit', compact('card'));
     }
 
-    public function editCard($id)
+    public function updae(UpdateCardRequest $request,Card $card)
     {
-        $this->card = Card::find($id);
-        return view('card.edit-card',[
-            'card' => $this->card,
-        ]);
+        $formdata = $request->validated();
+        $card->update($formdata);
+        return redirect(route('card.index'))->with('update', 'Card updated successfully');
     }
 
-    public function saveEditCard(Request $request)
+    public function destroy(Card $card)
     {
-        $request->validate([
-            'security_type' => 'required',
-            'card_number' => 'required',
-            'expiration' => 'required',
-            'cvv' => 'required',
-            'available_info' => 'required',
-            'all_info' => 'required',
-            'price' => 'required',
-        ]);
-        Card::saveEditCard($request);
-        return redirect(route('card'));
+        $card->delete();
+        return back()->with('destroy', 'Card deleted successfully');
     }
 }

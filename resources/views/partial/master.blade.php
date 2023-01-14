@@ -833,7 +833,7 @@
                             <li><a href="{{ route('mailer.index') }}">Mailers</a></li>
                             <li><a href="./app-profile.html">SMTPs</a></li>
                             <li><a href="./app-profile.html">Leads</a></li>
-                            <li><a href="./app-profile.html">Cards</a></li>
+                            <li><a href="{{ route('card.index') }}">Cards</a></li>
                             <li><a href="./app-profile.html">WebMails</a></li>
                             <li><a href="{{ route('account.index') }}">Accounts</a></li>
                             <li><a href="./app-profile.html">Scripts/Programs</a></li>

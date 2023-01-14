@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('requested_products', function (Blueprint $table) {
             $table->id();
-            $table->string('product_name');
-            $table->text('message');
+            $table->string('product_name')->nullable();
+            $table->text('message')->nullable();
             $table->tinyInteger('status')->default(0)->comment('0 = processing; 1 = completed');
             $table->tinyInteger('response')->default(0);
             $table->timestamps();

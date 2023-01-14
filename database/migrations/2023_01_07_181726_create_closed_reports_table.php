@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('closed_reports', function (Blueprint $table) {
             $table->id();
-            $table->string('item_name');
-            $table->string('item_type');
-            $table->double('price');
-            $table->dateTime('report_time');
+            $table->string('item_name')->nullable();
+            $table->string('item_type')->nullable();
+            $table->double('price')->nullable();
+            $table->dateTime('report_time')->nullable();
             $table->tinyInteger('status')->default(1)->comment('0 = Pending; 1 = Completed');
             $table->timestamps();
         });

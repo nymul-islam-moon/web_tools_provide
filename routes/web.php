@@ -62,11 +62,11 @@ Route::controller(SMTPController::class)->prefix('/smtp')->group(function () {
 });
 
 Route::controller(CardController::class)->prefix('/card')->group(function () {
-    Route::get('/', 'card')->name('card');
-    Route::post('/add-card', 'saveCard')->name('add.card');
-    Route::post('/delete-card/{id}', 'deleteCard')->name('delete.card');
-    Route::get('/edit-card/{id}', 'editCard')->name('edit.card');
-    Route::post('/add-card-smtp', 'saveEditCard')->name('add.edit.card');
+    Route::get('/', 'index')->name('card.index');
+    Route::post('/', 'store')->name('card.store');
+    Route::post('/{card}/edit', 'edit')->name('card.edit');
+    Route::get('/{card}/update', 'update')->name('card.update');
+    Route::post('/{card}/destroy', 'destroy')->name('card.destroy');
 });
 
 Route::controller(LeadController::class)->prefix('/leads')->group(function () {

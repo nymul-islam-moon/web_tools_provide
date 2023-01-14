@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('webmails', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
-            $table->string('username');
-            $table->string('password');
-            $table->double('price');
+            $table->string('type')->nullable();
+            $table->string('username')->nullable();
+            $table->string('password')->nullable();
+            $table->double('price')->nullable();
             $table->tinyInteger('status')->default(0)->comment('0 = disable; 1 = enable');
             $table->timestamps();
         });

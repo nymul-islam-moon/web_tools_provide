@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cpanels;
+use App\Http\Requests\Cpanel\CreateCpanelRequest;
+use App\Http\Requests\Cpanel\UpdateCpanelRequest;
+use App\Models\Cpanel;
 use Illuminate\Http\Request;
 
 class CpanelsController extends Controller
@@ -10,50 +12,33 @@ class CpanelsController extends Controller
 
     public function index()
     {
-        return view('Cpanels.index',[
-            'cpanels' => Cpanels::paginate(5),
-        ]);
+        $cpanels = Cpanel::latest()->paginate(5);
+
+        return view('cpanel.index', compact('cpanels'));
     }
 
-    public function create()
+    public function store(CreateCpanelRequest $request)
     {
-        return view('cpanels.create');
+        $formdata = $request->validated();
+        Cpanel::create($formdata);
+        return back()->with('create', 'Cpanel created successfully');
     }
 
-    public function store(Request $request)
+    public function edit(Cpanel $cpanel)
     {
-        $cpanel = new Cpanels();
-        $cpanel->cpanel = $request->cpanel;
-        $cpanel->username = $request->username;
-        $cpanel->password = $request->password;
-        $cpanel->source = $request->source;
-        $cpanel->price = $request->price;
-        $cpanel->save();
-        return redirect()->route('cpanels.index');
+        return view('cpanel.edit', compact('cpanel'));
     }
 
-    public function show(Cpanels $cpanels)
+    public function update(UpdateCpanelRequest $request, Cpanel $cpanel)
     {
-
+        $formdata = $request->validated();
+        $cpanel->update($formdata);
+        return back()->with('update', 'Cpanel updated successfully');
     }
 
-    public function edit(Cpanels $cpanel)
-    {
-        return view('cpanels.edit', ['cpanels' => $cpanel]);
-    }
-
-    public function update(Request $request, Cpanels $cpanel)
-    {
-        $cpanel->cpanel = $request->cpanel;
-        $cpanel->source = $request->source;
-        $cpanel->price = $request->price;
-        $cpanel->save();
-        return redirect()->route('cpanels.index');
-    }
-
-    public function destroy(Request $request, Cpanels $cpanel)
+    public function destroy(Cpanel $cpanel)
     {
         $cpanel->delete();
-        return redirect()->route('cpanels.index');
+        return back()->with('destroy', 'Cpanel deleted successfully');
     }
 }
