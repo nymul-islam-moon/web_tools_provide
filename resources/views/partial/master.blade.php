@@ -827,12 +827,12 @@
                         <ul aria-expanded="false">
                             <li><a href="./app-profile.html">LuFix Services</a></li>
                             <li><a href="./app-profile.html">Shells</a></li>
-                            <li><a href="./app-profile.html">cPanels</a></li>
+                            <li><a href="{{ route('cpanel.index') }}">cPanels</a></li>
                             <li><a href="./app-profile.html">RDPs</a></li>
                             <li><a href="./app-profile.html">SSH/WHM</a></li>
                             <li><a href="{{ route('mailer.index') }}">Mailers</a></li>
                             <li><a href="./app-profile.html">SMTPs</a></li>
-                            <li><a href="./app-profile.html">Leads</a></li>
+                            <li><a href="{{ route('lead.index') }}">Leads</a></li>
                             <li><a href="{{ route('card.index') }}">Cards</a></li>
                             <li><a href="./app-profile.html">WebMails</a></li>
                             <li><a href="{{ route('account.index') }}">Accounts</a></li>

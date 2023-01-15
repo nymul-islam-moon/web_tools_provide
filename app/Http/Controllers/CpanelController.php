@@ -37,7 +37,7 @@ class CpanelController extends Controller
     {
         $formdata = $request->validated();
         $cpanel->update($formdata);
-        return back()->with('update', 'Cpanel updated successfully');
+        return redirect(route('cpanel.index'))->with('update', 'Cpanel updated successfully');
     }
 
     public function destroy(Cpanel $cpanel)

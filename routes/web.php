@@ -78,12 +78,12 @@ Route::controller(CardController::class)->prefix('/card')->group(function () {
     Route::delete('/{card}/destroy', 'destroy')->name('card.destroy');
 });
 
-Route::controller(LeadController::class)->prefix('/leads')->group(function () {
-    Route::get('/', 'lead')->name('lead');
-    Route::post('/create', 'create')->name('create.lead');
-    Route::post('/delete-lead/{id}', 'deleteLead')->name('delete.lead');
-    Route::get('/edit-lead/{id}', 'editLead')->name('edit.lead');
-    Route::post('/add-lead-smtp', 'saveEditLead')->name('add.edit.lead');
+Route::controller(LeadController::class)->prefix('/lead')->group(function () {
+    Route::get('/', 'index')->name('lead.index');
+    Route::post('/create', 'create')->name('lead.create');
+    Route::get('/{lead}/edit', 'edit')->name('lead.edit');
+    Route::put('/{lead}/update', 'update')->name('lead.update');
+    Route::delete('/{lead}/destroy', 'destroy')->name('lead.destroy');
 });
 
 

@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Lead\LeadCreateRequest;
+use App\Http\Requests\Lead\UpdateLeadRequest;
 use App\Models\Lead;
 use Illuminate\Http\Request;
 
 class LeadController extends Controller
 {
-    public function lead()
+    public function index()
     {
-        return view('lead.index-lead',[
-            'leads' => Lead::paginate(5),
-        ]);
+        $leads = Lead::paginate(5);
+        return view('lead.index', compact('leads'));
     }
 
     public function create(Request $request)
@@ -42,34 +42,25 @@ class LeadController extends Controller
         return back();
     }
 
-    // public function deleteLead($id)
-    // {
-    //     $this->lead = Lead::find($id);
-    //     $this->lead->delete();
-    //     return back();
-    // }
 
-    // public function editLead($id)
-    // {
-    //     $this->lead = Lead::find($id);
-    //     return view('lead.edit-lead',[
-    //         'lead' => $this->lead,
-    //     ]);
-    // }
 
-    // public function saveEditLead(Request $request)
-    // {
-    //     $request->validate([
-    //         'download_link' => 'required',
-    //         'number' => 'required',
-    //         'type' => 'required',
-    //         'provider' => 'required',
-    //         'description' => 'required',
-    //         'proof' => 'required',
-    //         'country' => 'required',
-    //         'price' => 'required',
-    //     ]);
-    //     Lead::saveEditLead($request);
-    //     return redirect(route('lead'));
-    // }
+    public function edit(Lead $lead)
+    {
+        return view('lead.edit', compact('lead'));
+    }
+
+    public function update(UpdateLeadRequest $request, Lead $lead)
+    {
+        $formdata = $request->validated($request);
+        $lead->update($formdata);
+        return redirect(route('lead.index'))->with('update', 'Lead updated successfully');
+    }
+
+
+    public function destroy(Lead $lead)
+    {
+        $lead->delete();
+        return back()->with('destroy', 'Lead deleted successfully');
+    }
+
 }

@@ -11,7 +11,7 @@
     <div class="col-xl-12 col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Add Cards</h4>
+                <h4 class="card-title">Add cPanel</h4>
             </div>
             <div class="card-body">
                 <div class="basic-form">
@@ -111,7 +111,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Leads</h4>
+                <h4 class="card-title">cPanel</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -141,8 +141,8 @@
                                                 <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
                                             </button>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="{{ route('card.edit', $cpanel->id) }}">Edit</a>
-                                                <form action="{{ route('card.destroy', $cpanel->id) }}" method="post">
+                                                <a class="dropdown-item" href="{{ route('cpanel.edit', $cpanel->id) }}">Edit</a>
+                                                <form action="{{ route('cpanel.destroy', $cpanel->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="dropdown-item">Delete</button>

@@ -7,6 +7,12 @@
         <li class="breadcrumb-item active"><a href="javascript:void(0)">Leads</a></li>
     </ol>
 </div>
+
+
+
+
+
+
 <div class="row">
     <div class="col-xl-12 col-lg-12">
         <div class="card">
@@ -15,7 +21,7 @@
             </div>
             <div class="card-body">
                 <div class="basic-form">
-                    <form action="{{route('create.lead')}}" method="POST">
+                    <form action="{{route('lead.create')}}" method="POST">
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -76,6 +82,7 @@
                             <div class="form-group col-md-4">
                                 <label>Price</label>
                                 <input type="number" name="price" class="form-control" placeholder="Price" value="{{ old('price') }}">
+
                                 @error('price')
                                     <div class="alert alert-danger alert-dismissible fade show">
                                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
@@ -152,6 +159,7 @@
                         <thead>
                             <tr>
                                 <th class="width80">#</th>
+                                <th>Actions</th>
                                 <th>Provider</th>
                                 <th>Number</th>
                                 <th>Type</th>
@@ -162,13 +170,27 @@
                                 <th>Added</th>
                                 <th>Description</th>
                                 <th>Additional Information</th>
-                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($leads as $key=> $lead)
                                 <tr>
                                     <td><strong>{{ $key+1 }}</strong></td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button type="button" class="btn btn-warning light sharp" data-toggle="dropdown">
+                                                <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="{{ route('lead.edit', $lead->id) }}">Edit</a>
+                                                <form action="{{ route('lead.destroy', $lead->id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="dropdown-item">Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </td>
                                     <td>{{ $lead->provider }}</td>
                                     <td>{{ $lead->phone_number }}</td>
                                     <td>{{ $lead->type }}</td>
@@ -179,17 +201,7 @@
                                     <td>{{ $lead->created_at }}</td>
                                     <td>{{ $lead->description }}</td>
                                     <td>{{ $lead->additional_information }}</td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button type="button" class="btn btn-warning light sharp" data-toggle="dropdown">
-                                                <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="">Edit</a>
-                                                <a class="dropdown-item" href="">Delete</a>
-                                            </div>
-                                        </div>
-                                    </td>
+
                                 </tr>
                             @endforeach
 
