@@ -64,9 +64,9 @@ Route::controller(SMTPController::class)->prefix('/smtp')->group(function () {
 Route::controller(CardController::class)->prefix('/card')->group(function () {
     Route::get('/', 'index')->name('card.index');
     Route::post('/', 'store')->name('card.store');
-    Route::post('/{card}/edit', 'edit')->name('card.edit');
-    Route::get('/{card}/update', 'update')->name('card.update');
-    Route::post('/{card}/destroy', 'destroy')->name('card.destroy');
+    Route::get('/{card}/edit', 'edit')->name('card.edit');
+    Route::put('/{card}/update', 'update')->name('card.update');
+    Route::delete('/{card}/destroy', 'destroy')->name('card.destroy');
 });
 
 Route::controller(LeadController::class)->prefix('/leads')->group(function () {
