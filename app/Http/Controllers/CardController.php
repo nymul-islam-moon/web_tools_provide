@@ -27,7 +27,7 @@ class CardController extends Controller
         return view('card.edit', compact('card'));
     }
 
-    public function updae(UpdateCardRequest $request,Card $card)
+    public function update(UpdateCardRequest $request,Card $card)
     {
         $formdata = $request->validated();
         $card->update($formdata);

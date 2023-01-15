@@ -17,6 +17,7 @@
                 <div class="basic-form">
                     <form action="{{route('card.update', $card->id)}}" method="POST">
                         @csrf
+                        @method('PUT')
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Security Type</label>

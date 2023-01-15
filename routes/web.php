@@ -7,6 +7,7 @@ use App\Http\Controllers\SMTPController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\CpanelController;
 use App\Http\Controllers\ScriptController;
 use App\Http\Controllers\LetterController;
 use App\Http\Controllers\TutorialController;
@@ -42,6 +43,14 @@ Route::controller(MailerController::class)->prefix('/mailer')->group(function ()
     Route::get('/{mailer}/edit', 'edit')->name('mailer.edit');
     Route::put('/{mailer}/update', 'update')->name('mailer.update');
     Route::delete('/{mailer}/destroy', 'destroy')->name('mailer.destroy');
+});
+
+Route::controller(CpanelController::class)->prefix('/cpanel')->group(function () {
+    Route::get('/', 'index')->name('cpanel.index');
+    Route::post('/', 'store')->name('cpanel.store');
+    Route::get('/{cpanel}/edit', 'edit')->name('cpanel.edit');
+    Route::put('/{cpanel}/update', 'update')->name('cpanel.update');
+    Route::delete('/{cpanel}/destroy', 'destroy')->name('cpanel.destroy');
 });
 
 
@@ -177,7 +186,6 @@ Route::controller(ServiceOrderController::class)->prefix('/closed-service-orders
 });
 
 Route::resource('/product/shells', ShellsController::class);
-Route::resource('/product/cpanels', CpanelsController::class);
 Route::resource('/product/rdps', RdpsController::class);
 Route::resource('/product/sshwhm', SshWhmsController::class);
 

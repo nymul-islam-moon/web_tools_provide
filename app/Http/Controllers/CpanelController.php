@@ -7,7 +7,7 @@ use App\Http\Requests\Cpanel\UpdateCpanelRequest;
 use App\Models\Cpanel;
 use Illuminate\Http\Request;
 
-class CpanelsController extends Controller
+class CpanelController extends Controller
 {
 
     public function index()
@@ -20,6 +20,10 @@ class CpanelsController extends Controller
     public function store(CreateCpanelRequest $request)
     {
         $formdata = $request->validated();
+        $formdata['cpanel'] = 'test_cpanel';
+        $formdata['country'] = 'test_country';
+        $formdata['seo_rank'] = 'test_seo_rank';
+        $formdata['status'] = 0;
         Cpanel::create($formdata);
         return back()->with('create', 'Cpanel created successfully');
     }

@@ -24,13 +24,10 @@ class CreateCpanelRequest extends FormRequest
     public function rules()
     {
         return [
-            'cpanel' => ['required'],
-            'username' => ['required'],
-            'passowrd' => ['required'],
+            'user_name' => ['required'],
+            'password' => ['required'],
             'source' => ['required'],
-            'country' => ['required'],
             'hosting' => ['required'],
-            'seo_rank' => ['required'],
             'price' => ['required'],
         ];
     }
