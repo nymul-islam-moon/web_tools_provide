@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Lead\CreateLeadRequest;
 use App\Http\Requests\Lead\LeadCreateRequest;
 use App\Http\Requests\Lead\UpdateLeadRequest;
 use App\Models\Lead;
@@ -15,31 +16,17 @@ class LeadController extends Controller
         return view('lead.index', compact('leads'));
     }
 
-    public function create(Request $request)
+    public function create(CreateLeadRequest $request)
     {
-        $request->validate([
-            'link' => 'required',
-            'phone_number' => 'required',
-            'type' => 'required',
-            'provider' => 'required',
-            'proof' => 'required',
-            'country' => 'required',
-            'price' => 'required',
-        ]);
+        $formdata = $request->validated();
 
-        $lead = new Lead();
-        $lead->link = $request->link;
-        $lead->phone_number = $request->phone_number;
-        $lead->type = $request->type;
-        $lead->provider = $request->provider;
-        $lead->proof = $request->proof;
-        $lead->price = $request->price;
-        $lead->status = $request->status ? 1:0;
-        $lead->country = $request->country;
-        $lead->description = $request->description;
-        $lead->additional_information = $request->additional_information;
-        $lead->save();
-        return back();
+
+
+        $formdata['status'] = 0;
+
+        Lead::create($formdata);
+
+        return back()->with('create', 'Lead created successfully');
     }
 
 
@@ -51,7 +38,7 @@ class LeadController extends Controller
 
     public function update(UpdateLeadRequest $request, Lead $lead)
     {
-        $formdata = $request->validated($request);
+        $formdata = $request->validated();
         $lead->update($formdata);
         return redirect(route('lead.index'))->with('update', 'Lead updated successfully');
     }

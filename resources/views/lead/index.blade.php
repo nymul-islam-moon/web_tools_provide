@@ -54,7 +54,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label>Type</label>
-                                <input type="text" name="type" class="form-control" placeholder="Type" value="{{ old('type') }}">
+                                <input type="number" name="type" class="form-control" placeholder="Type" value="{{ old('type') }}">
                                 @error('type')
                                     <div class="alert alert-danger alert-dismissible fade show">
                                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
@@ -201,12 +201,11 @@
                                     <td>{{ $lead->created_at }}</td>
                                     <td>{{ $lead->description }}</td>
                                     <td>{{ $lead->additional_information }}</td>
-
                                 </tr>
                             @endforeach
-
                         </tbody>
                     </table>
+                    {{ $leads->links() }}
                 </div>
             </div>
         </div>

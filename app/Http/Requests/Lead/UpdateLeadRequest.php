@@ -24,11 +24,12 @@ class UpdateLeadRequest extends FormRequest
     public function rules()
     {
         return [
-            'download_link' => 'required',
-            'number' => 'required',
+            'link' => 'required',
+            'phone_number' => 'required',
             'type' => 'required',
             'provider' => 'required',
             'description' => 'required',
+            'additional_information' => 'required',
             'proof' => 'required',
             'country' => 'required',
             'price' => 'required',
