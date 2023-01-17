@@ -87,7 +87,7 @@ Route::controller(LeadController::class)->prefix('/lead')->group(function () {
 
     // pdf
     Route::get('/pdf/download', 'pdfDownload')->name('lead.pdf.download');
-    Route::get('/pdf/generator', 'pdfGenerator')->name('lead.pdf.generator');
+    // Route::get('/pdf/generator', 'pdfGenerator')->name('lead.pdf.generator');
 });
 
 

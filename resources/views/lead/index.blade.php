@@ -9,10 +9,6 @@
 </div>
 
 
-
-
-
-
 <div class="row">
     <div class="col-xl-12 col-lg-12">
         <div class="card">
@@ -153,9 +149,9 @@
             <div class="card-header">
                 <h4 class="card-title">Leads</h4>
                 <div class="btn-group">
-                    <a type="button" href="{{ route('lead.pdf.download') }}" class="btn btn-primary">Left</a>
-                    <button type="button" class="btn btn-primary">Middle</button>
-                    <button type="button" class="btn btn-primary">Right</button>
+                    <a type="button" href="{{ route('lead.pdf.download') }}" class="btn btn-primary">Download PDF</a>
+                    {{-- <button type="button" class="btn btn-primary">Middle</button> --}}
+                    {{-- <button type="button" class="btn btn-primary">Right</button> --}}
                 </div>
             </div>
             <div class="card-body">

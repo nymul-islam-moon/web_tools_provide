@@ -55,11 +55,11 @@ class LeadController extends Controller
         return $pdf->download('Lead-List');
     }
 
-    public function pdfGenerator()
-    {
-        $leads = Lead::all();
-        $pdf = Pdf::loadView('pdf.index', compact('leads'));
-        return $pdf->stream('Lead-List');
-    }
+    // public function pdfGenerator()
+    // {
+    //     $leads = Lead::all();
+    //     $pdf = Pdf::loadView('pdf.index', compact('leads'));
+    //     return $pdf->stream('Lead-List');
+    // }
 
 }
