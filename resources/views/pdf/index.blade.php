@@ -320,27 +320,25 @@
         </div>
 
         <div class="item-description">
-            <h5 class="table-title">{{ __('Include Services') }}</h5>
+            <h5 class="table-title">Lead List</h5>
             <table class="custom--table">
                 <thead>
                 <tr>
-                    <th>{{ __('Title') }}</th>
-                    <th>{{ __('Unit Price') }}</th>
-                    <th>{{ __('Quantity') }}</th>
-                    <th>{{ __('Total') }}</th>
+                    <th>SL</th>
+                    <th>Provider</th>
+                    <th>Number</th>
+                    <th>Type</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>{{ __('House Cleaning') }}</td>
-                    <td>$10</td>
-                    <td>3</td>
-                    <td>$30</td>
-                </tr>
-                <tr class="table_footer_row">
-                    <td colspan="3"><strong>{{ __('Package Fee') }}</strong></td>
-                    <td><strong>$30</strong></td>
-                </tr>
+                    @foreach ($leads as $key=> $lead)
+                        <tr>
+                            <td>{{ $key+1 }}</td>
+                            <td>{{ $lead->provider }}</td>
+                            <td>{{ $lead->phone_number }}</td>
+                            <td>{{ $lead->type }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -379,9 +377,9 @@
                 <table class="custom--table">
                     <thead class="head-bg">
                     <tr>
-                        <th>{{ __('Coupon Code') }}</th>
-                        <th>{{ __('Coupon Type') }}</th>
-                        <th>{{ __('Coupon Amount') }}</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -435,7 +433,7 @@
 
         <footer>
             <h3 style="text-align: center">
-                {{ $data }}
+                {{ $leads }}
             </h3>
         </footer>
 

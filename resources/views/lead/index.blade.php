@@ -153,7 +153,7 @@
             <div class="card-header">
                 <h4 class="card-title">Leads</h4>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary">Left</button>
+                    <a type="button" href="{{ route('lead.pdf.download') }}" class="btn btn-primary">Left</a>
                     <button type="button" class="btn btn-primary">Middle</button>
                     <button type="button" class="btn btn-primary">Right</button>
                 </div>

@@ -7,6 +7,8 @@ use App\Http\Requests\Lead\LeadCreateRequest;
 use App\Http\Requests\Lead\UpdateLeadRequest;
 use App\Models\Lead;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class LeadController extends Controller
 {
@@ -43,6 +45,21 @@ class LeadController extends Controller
     {
         $lead->delete();
         return back()->with('destroy', 'Lead deleted successfully');
+    }
+
+
+    public function pdfDownload()
+    {
+        $leads = Lead::all();
+        $pdf = Pdf::loadView('pdf.index', compact('leads'));
+        return $pdf->download('Lead-List');
+    }
+
+    public function pdfGenerator()
+    {
+        $leads = Lead::all();
+        $pdf = Pdf::loadView('pdf.index', compact('leads'));
+        return $pdf->stream('Lead-List');
     }
 
 }
