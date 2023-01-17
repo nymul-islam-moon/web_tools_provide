@@ -33,7 +33,7 @@ class LeadController extends Controller
 
     public function update(UpdateLeadRequest $request, Lead $lead)
     {
-        $formdata = $request->validated($request);
+        $formdata = $request->validated();
         $lead->update($formdata);
         return redirect(route('lead.index'))->with('update', 'Lead updated successfully');
     }
