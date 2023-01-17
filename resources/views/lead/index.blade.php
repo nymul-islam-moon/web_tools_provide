@@ -152,6 +152,11 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Leads</h4>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary">Left</button>
+                    <button type="button" class="btn btn-primary">Middle</button>
+                    <button type="button" class="btn btn-primary">Right</button>
+                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
