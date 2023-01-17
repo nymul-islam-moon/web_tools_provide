@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
-            $table->string('link')->nullable();
+            $table->string('download_link')->nullable();
             $table->string('phone_number')->nullable();
-            $table->string('type')->nullable();
+            $table->tinyInteger('type')->nullable();
             $table->string('provider')->nullable();
             $table->text('description')->nullable();
             $table->text('additional_information')->nullable();

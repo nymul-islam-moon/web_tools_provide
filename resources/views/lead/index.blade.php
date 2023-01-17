@@ -26,8 +26,8 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Download Link</label>
-                                <input type="url" name="link" class="form-control" placeholder="Download Link" value="{{ old('link') }}">
-                                @error('link')
+                                <input type="url" name="download_link" class="form-control" placeholder="Download Link" value="{{ old('download_link') }}">
+                                @error('download_link')
                                     <div class="alert alert-danger alert-dismissible fade show">
                                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
                                             <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
@@ -54,7 +54,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label>Type</label>
-                                <input type="text" name="type" class="form-control" placeholder="Type" value="{{ old('type') }}">
+                                <input type="number" name="type" class="form-control" placeholder="Type" value="{{ old('type') }}">
                                 @error('type')
                                     <div class="alert alert-danger alert-dismissible fade show">
                                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
@@ -132,7 +132,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Additional Info</label>
-                                <textarea class="form-control" name="additional_information" rows="4" id="comment" style="height: 170px;">{{ old('additional_information') }}</textarea>
+                                <textarea class="form-control" name="additional_information" id="additional_information" rows="4" id="comment" style="height: 170px;">{{ old('additional_information') }}</textarea>
                             </div>
                         </div>
 

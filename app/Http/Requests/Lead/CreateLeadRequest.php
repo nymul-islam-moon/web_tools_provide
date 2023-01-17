@@ -24,14 +24,16 @@ class CreateLeadRequest extends FormRequest
     public function rules()
     {
         return [
-            'download_link' => 'required',
-            'number' => 'required',
-            'type' => 'required',
-            'provider' => 'required',
-            'description' => 'required',
-            'proof' => 'required',
-            'country' => 'required',
             'price' => 'required',
+            'country' => 'required',
+            'proof' => 'required',
+            'provider' => 'required',
+            'type' => 'required',
+            'phone_number' => 'required',
+            'download_link' => 'required',
+            'additional_information' => ['sometimes', 'nullable', 'string'], // this field is required when it has some value otherwise it is ignored
+            'description' => ['sometimes', 'nullable', 'string'], // this field is required when it has some value otherwise it is ignored
+            'download_link' => 'required',
         ];
     }
 }

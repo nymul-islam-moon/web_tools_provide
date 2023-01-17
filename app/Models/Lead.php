@@ -11,23 +11,6 @@ class Lead extends Model
 
     protected $table = 'leads';
 
-    // protected $fillable = [
-    //     'name',
-    //     'email',
-    //     'phone',
-    //     'address',
-    //     'city',
-    //    'state',
-    //     'zip',
-    //     'country',
-    //     'lead_type',
-    //     'lead_source',
-    //     'lead_source_id',
-    //     'lead_source_type',
-    //     'lead_status',
-    //     'lead_status_id',
-    //     'created_at',
-    //     'updated_at',
-    // ];
+    protected $fillable = ['download_link', 'phone_number', 'type', 'provider', 'proof', 'country', 'price', 'additional_information', 'description'];
 
 }
