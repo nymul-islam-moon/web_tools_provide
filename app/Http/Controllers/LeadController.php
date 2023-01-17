@@ -17,7 +17,6 @@ class LeadController extends Controller
     }
 
     public function create(CreateLeadRequest $request)
-    public function create(CreateLeadRequest $request)
     {
         $formdata = $request->validated();
         $formdata['status'] = 0;
