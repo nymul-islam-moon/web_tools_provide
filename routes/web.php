@@ -84,6 +84,10 @@ Route::controller(LeadController::class)->prefix('/lead')->group(function () {
     Route::get('/{lead}/edit', 'edit')->name('lead.edit');
     Route::put('/{lead}/update', 'update')->name('lead.update');
     Route::delete('/{lead}/destroy', 'destroy')->name('lead.destroy');
+
+    // pdf
+    Route::get('/pdf/download', 'pdfGenerator')->name('lead.pdf.generator');
+    Route::get('/pdf/generator', 'pdfDownload')->name('lead.pdf.download');
 });
 
 
