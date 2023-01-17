@@ -17,6 +17,7 @@ class LeadController extends Controller
     }
 
     public function create(CreateLeadRequest $request)
+    public function create(CreateLeadRequest $request)
     {
         $formdata = $request->validated();
         $formdata['status'] = 0;
@@ -33,7 +34,7 @@ class LeadController extends Controller
 
     public function update(UpdateLeadRequest $request, Lead $lead)
     {
-        $formdata = $request->validated($request);
+        $formdata = $request->validated();
         $lead->update($formdata);
         return redirect(route('lead.index'))->with('update', 'Lead updated successfully');
     }

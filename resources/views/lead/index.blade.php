@@ -201,12 +201,11 @@
                                     <td>{{ $lead->created_at }}</td>
                                     <td>{{ $lead->description }}</td>
                                     <td>{{ $lead->additional_information }}</td>
-
                                 </tr>
                             @endforeach
-
                         </tbody>
                     </table>
+                    {{ $leads->links() }}
                 </div>
             </div>
         </div>

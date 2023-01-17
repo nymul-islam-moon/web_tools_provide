@@ -1,4 +1,5 @@
 @extends('partial.master')
+@extends('partial.master')
 
 @section('content')
 <div class="page-titles">
@@ -50,6 +51,7 @@
                                         <strong>Error!</strong> {{ $message }}
                                 </div>
                             @enderror
+                            @enderror
                             </div>
                         </div>
                         <div class="form-row">
@@ -96,6 +98,7 @@
                             </div>
 
                         </div>
+                        </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -137,7 +140,20 @@
                             </div>
                         </div>
 
+                        </div>
 
+
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
                         <div class="form-group row">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary">Update</button>
