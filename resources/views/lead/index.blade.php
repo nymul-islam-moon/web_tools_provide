@@ -194,7 +194,7 @@
                                     <td>{{ $lead->provider }}</td>
                                     <td>{{ $lead->phone_number }}</td>
                                     <td>{{ $lead->type }}</td>
-                                    <td>{{ $lead->link }}</td>
+                                    <td>{{ $lead->download_link }}</td>
                                     <td>{{ $lead->country }}</td>
                                     <td>{{ $lead->price }}</td>
                                     <td>{{ $lead->status }}</td>
