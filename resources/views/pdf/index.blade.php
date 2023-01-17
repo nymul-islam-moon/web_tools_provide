@@ -328,6 +328,9 @@
                     <th>Provider</th>
                     <th>Number</th>
                     <th>Type</th>
+                    <th>Download Link</th>
+                    <th>Country</th>
+                    <th>Price</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -337,6 +340,9 @@
                             <td>{{ $lead->provider }}</td>
                             <td>{{ $lead->phone_number }}</td>
                             <td>{{ $lead->type }}</td>
+                            <td>{{ $lead->download_link }}</td>
+                            <td>{{ $lead->country }}</td>
+                            <td>{{ $lead->price }}</td>
                         </tr>
                     @endforeach
                 </tbody>
