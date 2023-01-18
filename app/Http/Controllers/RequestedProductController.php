@@ -2,41 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RequestedProducts\CreateRequestedProductRequest;
+use App\Http\Requests\RequestedProducts\UpdateRequestedProductRequest;
 use App\Models\RequestedProduct;
 use Illuminate\Http\Request;
 use function Symfony\Component\String\b;
 
 class RequestedProductController extends Controller
 {
-    public function RequestedProduct()
+    public function index()
     {
-        return view('requested-product.add-requested-product');
+        return view('requested_product.index');
     }
 
-    public function saveRequestedProduct(Request $request)
+    public function create(CreateRequestedProductRequest $request)
     {
-        RequestedProduct::saveRequestedProduct($request);
-        return redirect(route('manage.requested.product'));
+        $formdata = $request->validated();
+        $formdata['status'] = 0;
+        RequestedProduct::create($formdata);
+        return back()->with('create', 'Requested Product created successfully');
     }
 
-    public function manageRequestedProduct()
+    public function show()
     {
-        return view('requested-product.manage-requested-product',[
-            'products' => RequestedProduct::paginate(5),
-        ]);
+        $requestedProducts = RequestedProduct::paginate(10);
+        return view('requested_product.show',compact('requestedProducts'));
     }
 
-    public function changeStatus($id)
+    public function edit(RequestedProduct $requestedProduct)
     {
-        $product = RequestedProduct::find($id);
-        if($product->status == 0)
-        {
-            $product->status = 1;
-        }
-        else{
-            $product->status = 0;
-        }
-        $product->save();
-        return back();
+        return view('requested_product.edit', compact('requestedProduct'));
+    }
+
+    public function update(UpdateRequestedProductRequest $request,RequestedProduct $requestedProduct)
+    {
+        $formdata = $request->validated();
+        $requestedProduct->update($formdata);
+        return redirect(route('requested.product.index'))->with('update', 'Requested Product updated successfully');
+    }
+
+    public function destroy(RequestedProduct $requestedProduct)
+    {
+        $requestedProduct->delete();
+        return back()->with('destroy', 'Requested Product deleted successfully');
     }
 }
