@@ -787,7 +787,7 @@
 						</a>
                         <ul aria-expanded="false">
                             <li><a href="./app-profile.html">Seller Guide</a></li>
-                            <li><a href="./app-profile.html">Requested Products</a></li>
+                            <li><a href="{{route('requested.product.index')}}">Requested Products</a></li>
                             {{-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
                                 <ul aria-expanded="false">
                                     <li><a href="./email-compose.html">Compose</a></li>

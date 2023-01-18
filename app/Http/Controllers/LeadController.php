@@ -26,8 +26,6 @@ class LeadController extends Controller
         return back()->with('create', 'Lead created successfully');
     }
 
-
-
     public function edit(Lead $lead)
     {
         return view('lead.edit', compact('lead'));
