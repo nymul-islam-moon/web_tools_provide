@@ -160,10 +160,12 @@ Route::controller(ReportsController::class)->prefix('/reports')->group(function 
 
 //--------------- Requested Product----------------//
 Route::controller(RequestedProductController::class)->prefix('/requested-product')->group(function () {
-Route::get('/',  'RequestedProduct')->name('requested.product');
-Route::post('requested-product',  'saveRequestedProduct')->name('requested.product');
-Route::get('manage-requested-product',  'manageRequestedProduct')->name('manage.requested.product');
-Route::get('change.status/{id}',  'changeStatus')->name('change.status');
+Route::get('/',  'index')->name('requested.product.index');
+Route::post('/create',  'create')->name('requested.product.create');
+Route::get('/show',  'show')->name('requested.product.show');
+Route::get('/{requestedProduct}/edit/',  'edit')->name('requested.product.edit');
+Route::PUT('/{requestedProduct}/update/',  'update')->name('requested.product.update');
+Route::delete('/{requestedProduct}/destroy/',  'destroy')->name('requested.product.destroy');
 });
 
 // ------------ Pending Reports -------------------//
