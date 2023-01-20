@@ -80,7 +80,8 @@ Route::controller(CardController::class)->prefix('/card')->group(function () {
 
 Route::controller(LeadController::class)->prefix('/lead')->group(function () {
     Route::get('/', 'index')->name('lead.index');
-    Route::post('/create', 'create')->name('lead.create');
+    Route::get('/create', 'create')->name('lead.create');
+    Route::post('/store', 'store')->name('lead.store');
     Route::get('/{lead}/edit', 'edit')->name('lead.edit');
     Route::put('/{lead}/update', 'update')->name('lead.update');
     Route::delete('/{lead}/destroy', 'destroy')->name('lead.destroy');

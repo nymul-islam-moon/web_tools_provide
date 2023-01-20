@@ -788,14 +788,14 @@
                         <ul aria-expanded="false">
                             <li><a href="./app-profile.html">Seller Guide</a></li>
                             <li><a href="./app-profile.html">Requested Products</a></li>
-                            {{-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
                                 <ul aria-expanded="false">
                                     <li><a href="./email-compose.html">Compose</a></li>
                                     <li><a href="./email-inbox.html">Inbox</a></li>
                                     <li><a href="./email-read.html">Read</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./app-calender.html">Calendar</a></li>
+                            {{-- <li><a href="./app-calender.html">Calendar</a></li>
 							<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Shop</a>
                                 <ul aria-expanded="false">
                                     <li><a href="./ecom-product-grid.html">Product Grid</a></li>
@@ -832,7 +832,16 @@
                             <li><a href="./app-profile.html">SSH/WHM</a></li>
                             <li><a href="{{ route('mailer.index') }}">Mailers</a></li>
                             <li><a href="./app-profile.html">SMTPs</a></li>
-                            <li><a href="{{ route('lead.index') }}">Leads</a></li>
+                            {{-- <li><a href="{{ route('lead.index') }}">Leads</a></li> --}}
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Leads</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="#">General</a></li>
+                                    <li><a href="{{ route('lead.index') }}">Lead List</a></li>
+                                    <li><a href="{{ route('lead.create') }}">Add Lead</a></li>
+                                    <li><a href="./email-read.html">Mass Add Lead</a></li>
+                                    <li><a href="./email-read.html">Pro Mass Add Lead</a></li>
+                                </ul>
+                            </li>
                             <li><a href="{{ route('card.index') }}">Cards</a></li>
                             <li><a href="./app-profile.html">WebMails</a></li>
                             <li><a href="{{ route('account.index') }}">Accounts</a></li>

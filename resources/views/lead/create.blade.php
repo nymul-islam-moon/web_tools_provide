@@ -8,21 +8,21 @@
     </ol>
 </div>
 
+
 <div class="row">
     <div class="col-xl-12 col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Edit Leads</h4>
+                <h4 class="card-title">Add Leads</h4>
             </div>
             <div class="card-body">
                 <div class="basic-form">
-                    <form action="{{route('lead.update',$lead->id)}}" method="POST">
+                    <form action="{{route('lead.store')}}" method="POST">
                         @csrf
-                        @method('PUT')
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Download Link</label>
-                                <input type="url" name="download_link" class="form-control" placeholder="Download Link" value="{{ $lead->download_link  }}">
+                                <input type="url" name="download_link" class="form-control" placeholder="Download Link" value="{{ old('download_link') }}">
                                 @error('download_link')
                                     <div class="alert alert-danger alert-dismissible fade show">
                                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
@@ -35,7 +35,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Provider</label>
-                                <input type="text" name="provider" class="form-control" placeholder="Provider" value="{{ $lead->provider  }}">
+                                <input type="text" name="provider" class="form-control" placeholder="Provider" value="{{ old('provider') }}">
                                 @error('provider')
                                 <div class="alert alert-danger alert-dismissible fade show">
                                     <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
@@ -50,7 +50,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label>Type</label>
-                                <input type="number" name="type" class="form-control" placeholder="Type" value="{{ $lead->type  }}">
+                                <input type="number" name="type" class="form-control" placeholder="Type" value="{{ old('type') }}">
                                 @error('type')
                                     <div class="alert alert-danger alert-dismissible fade show">
                                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
@@ -63,7 +63,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label>Phone Number</label>
-                                <input type="text" name="phone_number" class="form-control" placeholder="Phone Number" value="{{ $lead->phone_number  }}">
+                                <input type="text" name="phone_number" class="form-control" placeholder="Phone Number" value="{{ old('phone_number') }}">
                                 @error('phone_number')
                                     <div class="alert alert-danger alert-dismissible fade show">
                                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
@@ -77,7 +77,7 @@
 
                             <div class="form-group col-md-4">
                                 <label>Price</label>
-                                <input type="number" name="price" class="form-control" placeholder="Price" value="{{ $lead->price  }}">
+                                <input type="number" name="price" class="form-control" placeholder="Price" value="{{ old('price') }}">
 
                                 @error('price')
                                     <div class="alert alert-danger alert-dismissible fade show">
@@ -95,7 +95,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Proof</label>
-                                <input type="text" name="proof" class="form-control" placeholder="Proof" value="{{ $lead->proof  }}">
+                                <input type="text" name="proof" class="form-control" placeholder="Proof" value="{{ old('proof') }}">
                                 @error('proof')
                                     <div class="alert alert-danger alert-dismissible fade show">
                                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
@@ -108,7 +108,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Country</label>
-                                <input type="text" name="country" class="form-control" placeholder="Country" value="{{ $lead->country  }}">
+                                <input type="text" name="country" class="form-control" placeholder="Country" value="{{ old('country') }}">
                                 @error('country')
                                     <div class="alert alert-danger alert-dismissible fade show">
                                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
@@ -124,18 +124,18 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>Description</label>
-                                <textarea class="form-control" name="description" rows="4" id="description" style="height: 170px;">{{ $lead->description  }}</textarea>
+                                <textarea class="form-control" name="description" rows="4" id="description" style="height: 170px;">{{ old('description') }}</textarea>
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Additional Info</label>
-                                <textarea class="form-control" name="additional_information" rows="4" id="comment" style="height: 170px;">{{ $lead->additional_information  }}</textarea>
+                                <textarea class="form-control" name="additional_information" id="additional_information" rows="4" id="comment" style="height: 170px;">{{ old('additional_information') }}</textarea>
                             </div>
                         </div>
 
 
                         <div class="form-group row">
                             <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </div>
                     </form>

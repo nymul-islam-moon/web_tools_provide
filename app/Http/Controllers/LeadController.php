@@ -18,12 +18,17 @@ class LeadController extends Controller
         return view('lead.index', compact('leads'));
     }
 
-    public function create(CreateLeadRequest $request)
+    public function create()
+    {
+        return view('lead.create');
+    }
+
+    public function store(CreateLeadRequest $request)
     {
         $formdata = $request->validated();
         $formdata['status'] = 0;
         Lead::create($formdata);
-        return back()->with('create', 'Lead created successfully');
+        return redirect(route('lead.index'))->with('create', 'Lead created successfully');
     }
 
 
