@@ -10,6 +10,7 @@ class LufixService extends Model
     use HasFactory;
 
     protected $table = 'lufix_services';
-    protected $fillable = ['title', 'description', 'proof', 'selling_type', 'duration', 'price_type'];
+
+    protected $fillable = ['title', 'description', 'proof', 'selling_type', 'duration', 'price_type', 'status'];
 
 }

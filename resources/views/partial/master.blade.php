@@ -825,9 +825,31 @@
                             <span class="nav-text">My Products</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./app-profile.html">LuFix Services</a></li>
-                            <li><a href="./app-profile.html">Shells</a></li>
-                            <li><a href="{{ route('cpanel.index') }}">cPanels</a></li>
+                            <li><a class="has-arrow" href="javascript:void()">LuFix Services</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="#">General</a></li>
+                                    <li><a href="{{ route('lufix.index') }}">Lufix Service List</a></li>
+                                    <li><a href="{{ route('lufix.create') }}">Add Lufix Service</a></li>
+                                    <li><a href="./email-read.html">Mass Add Lead</a></li>
+                                    <li><a href="./email-read.html">Pro Mass Add Lead</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="has-arrow" href="javascript:void()">Shells</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="{{ route('shell.index') }}">Shell List</a></li>
+                                    <li><a href="{{ route('shell.create') }}">Add Shell</a></li>
+                                    <li><a href="./email-read.html">Mass Add Lead</a></li>
+                                    <li><a href="./email-read.html">Pro Mass Add Lead</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="has-arrow" href="javascript:void()">cPanels</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="{{ route('cpanel.index') }}">cPanel List</a></li>
+                                    <li><a href="{{ route('cpanel.create') }}">Add cPanel</a></li>
+                                    <li><a href="./email-read.html">Mass Add Lead</a></li>
+                                    <li><a href="./email-read.html">Pro Mass Add Lead</a></li>
+                                </ul>
+                            </li>
                             <li><a href="./app-profile.html">RDPs</a></li>
                             <li><a href="./app-profile.html">SSH/WHM</a></li>
                             <li><a href="{{ route('mailer.index') }}">Mailers</a></li>

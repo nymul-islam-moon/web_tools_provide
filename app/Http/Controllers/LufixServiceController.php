@@ -2,45 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LufixService\CreateLufixServiceRequest;
+use App\Http\Requests\LufixService\LufixServiceCreateRequest;
+use App\Http\Requests\LufixService\UpdateLufixServiceRequest;
 use App\Models\LufixService;
 use Illuminate\Http\Request;
 
 class LufixServiceController extends Controller
 {
-
-    public function lufixIndex(Request $request)
-    {
-        $lufix = LufixService::all();
-        return view('Lufix.lufix', [
-            'lufix_services' => LufixService::paginate(5),
-        ]);
-    }
-
-    public function saveLufix(Request $request)
-    {
-        LufixService::saveLufix($request);
-        return redirect(route('lufix'));
-    }
-
-    public function deleteLufix(Request $request)
-    {
-        $lufix = LufixService::find($request->lufix_services_id);
-        $lufix->delete();
-        return back();
-    }
-
-    public function editLufix($id)
-    {
-        return view('Lufix.edit-lufix', [
-            'lufix_services' => LufixService::find($id)
-        ]);
-    }
-
-    public function updateLufix(Request $request)
-    {
-        LufixService::updateLufix($request);
-        return redirect(route('lufix'));
-    }
 
     /**
      * Display a listing of the resource.
@@ -49,7 +18,8 @@ class LufixServiceController extends Controller
      */
     public function index()
     {
-        //
+        $lufixServices = LufixService::paginate(5);
+        return view('MyProducts.Lufix.index', compact('lufixServices'));
     }
 
     /**
@@ -59,7 +29,7 @@ class LufixServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('MyProducts.Lufix.create');
     }
 
     /**
@@ -68,9 +38,12 @@ class LufixServiceController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateLufixServiceRequest $request)
     {
-        //
+        $formdata = $request->validated();
+        $formdata['status'] = 0;
+        LufixService::create($formdata);
+        return redirect(route('lufix.index'))->with('create', 'Lufix Service created successfully');
     }
 
     /**
@@ -90,9 +63,9 @@ class LufixServiceController extends Controller
      * @param \App\Models\LufixService $lufixService
      * @return \Illuminate\Http\Response
      */
-    public function edit(LufixService $lufixService)
+    public function edit(LufixService $lufix)
     {
-        //
+        return view('MyProducts.lufix.edit', compact('lufix'));
     }
 
     /**
@@ -102,9 +75,12 @@ class LufixServiceController extends Controller
      * @param \App\Models\LufixService $lufixService
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LufixService $lufixService)
+    public function update(UpdateLufixServiceRequest $request, LufixService $lufix)
     {
-        //
+        $formdata = $request->validated();
+        $formdata['status'] = 0;
+        $lufix->create($formdata);
+        return redirect(route('lufix.index'))->with('create', 'Lufix Service updated successfully');
     }
 
     /**
@@ -113,8 +89,9 @@ class LufixServiceController extends Controller
      * @param \App\Models\LufixService $lufixService
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LufixService $lufixService)
+    public function destroy(LufixService $lufix)
     {
-        //
+        $lufix->delete();
+        return back()->with('destroy', 'Lufix Service deleted successfully');
     }
 }

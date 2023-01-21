@@ -9,14 +9,13 @@ class RdpsController extends Controller
 {
     public function index()
     {
-        return view('Rdps.index',[
-            'rdps' => Rdps::paginate(5),
-        ]);
+        $rdps = Rdps::paginate(5);
+        return view('MyProducts.rdps.index', compact('rdps'));
     }
 
     public function create()
     {
-        return view('rdps.create');
+        return view('MyProducts.rdps.create');
     }
 
     public function store(Request $request)
@@ -37,12 +36,12 @@ class RdpsController extends Controller
 
     public function show(Rdps $rdps)
     {
-
+        //
     }
 
     public function edit(Rdps $rdp)
     {
-        return view('rdps.edit', ['rdps' => $rdp]);
+        return view('MyProducts.rdps.edit', ['rdps' => $rdp]);
     }
 
     public function update(Request $request, Rdps $rdp)

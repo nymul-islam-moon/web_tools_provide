@@ -1,11 +1,157 @@
-@extends('master')
-
-@section('title')
-    Lucifer Project | Lufix Service
-@endsection
+@extends('partial.master')
 
 @section('content')
-    <div class="content content-fixed">
+<div class="page-titles">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="javascript:void(0)">My Products</a></li>
+        <li class="breadcrumb-item active"><a href="javascript:void(0)">Lufix Services</a></li>
+    </ol>
+</div>
+<div class="row">
+    <div class="col-xl-12 col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Add Lufix Services</h4>
+            </div>
+            <div class="card-body">
+                <div class="basic-form">
+                    <form action="{{ route('lufix.store') }}" method="POST">
+                        @csrf
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Title</label>
+                                <input type="text" name="title" class="form-control" placeholder="Title" value="{{ old('title') }}">
+                                @error('title')
+                                    <div class="alert alert-danger alert-dismissible fade show">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                                            <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
+                                            <line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
+                                        </svg>
+                                            <strong>Error!</strong> {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Proof</label>
+                                <input type="text" name="proof" class="form-control" placeholder="Proof" value="{{ old('proof') }}">
+                                @error('proof')
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                                        <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
+                                        <line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
+                                    </svg>
+                                        <strong>Error!</strong> {{ $message }}
+                                </div>
+                            @enderror
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label>Sellling Type</label>
+                                <input type="text" name="selling_type" class="form-control" placeholder="Selling Type" value="{{ old('selling_type') }}">
+                                @error('selling_type')
+                                    <div class="alert alert-danger alert-dismissible fade show">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                                            <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
+                                            <line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
+                                        </svg>
+                                            <strong>Error!</strong> {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Duration</label>
+                                <input type="text" name="duration" class="form-control" placeholder="Duration" value="{{ old('duration') }}">
+                                @error('duration')
+                                    <div class="alert alert-danger alert-dismissible fade show">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                                            <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
+                                            <line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
+                                        </svg>
+                                            <strong>Error!</strong> {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>Price Type</label>
+                                <input type="text" name="price_type" class="form-control" placeholder="Price Type" value="{{ old('price_type') }}">
+
+                                @error('price_type')
+                                    <div class="alert alert-danger alert-dismissible fade show">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                                            <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
+                                            <line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
+                                        </svg>
+                                            <strong>Error!</strong> {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Status</label>
+                                <input type="text" name="status" class="form-control" placeholder="Status" value="{{ old('status') }}">
+                                @error('status')
+                                    <div class="alert alert-danger alert-dismissible fade show">
+                                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                                            <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
+                                            <line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
+                                        </svg>
+                                            <strong>Error!</strong> {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label>Description</label>
+                                <textarea class="form-control" name="description" rows="4" id="description" placeholder="Description" style="height: 170px;">{{ old('description') }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- <div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Lufix services</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-responsive-md">
+                        <thead>
+                            <tr>
+                                <th class="width80">#</th>
+                                <th>Actions</th>
+                                <th>Title</th>
+                                <th>Duration</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Added</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --}}
+    {{-- <div class="content content-fixed">
         <div class="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
             <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
                 <div>
@@ -42,7 +188,7 @@
                                     <h3 class="text-center font-weight-light my-2">Add Service</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{route('saveLufix')}}" method="post">
+                                    <form action="" method="post">
                                         @csrf
                                         <div class="form-floating mb-2">
                                             <input class="form-control" name="title" type="text"
@@ -175,5 +321,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection

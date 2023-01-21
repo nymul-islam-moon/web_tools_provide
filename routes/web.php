@@ -39,7 +39,8 @@ Route::controller(DashboardController::class)->prefix('/')->group(function () {
 
 Route::controller(MailerController::class)->prefix('/mailer')->group(function () {
     Route::get('/', 'index')->name('mailer.index');
-    Route::post('/', 'store')->name('mailer.store');
+    Route::post('/store', 'store')->name('mailer.store');
+    Route::post('/create', 'create')->name('mailer.create');
     Route::get('/{mailer}/edit', 'edit')->name('mailer.edit');
     Route::put('/{mailer}/update', 'update')->name('mailer.update');
     Route::delete('/{mailer}/destroy', 'destroy')->name('mailer.destroy');
@@ -47,7 +48,8 @@ Route::controller(MailerController::class)->prefix('/mailer')->group(function ()
 
 Route::controller(CpanelController::class)->prefix('/cpanel')->group(function () {
     Route::get('/', 'index')->name('cpanel.index');
-    Route::post('/', 'store')->name('cpanel.store');
+    Route::get('/create', 'create')->name('cpanel.create');
+    Route::post('/store', 'store')->name('cpanel.store');
     Route::get('/{cpanel}/edit', 'edit')->name('cpanel.edit');
     Route::put('/{cpanel}/update', 'update')->name('cpanel.update');
     Route::delete('/{cpanel}/destroy', 'destroy')->name('cpanel.destroy');
@@ -87,18 +89,19 @@ Route::controller(LeadController::class)->prefix('/lead')->group(function () {
     Route::delete('/{lead}/destroy', 'destroy')->name('lead.destroy');
 
     // pdf
-    Route::get('/pdf/download', 'pdfDownload')->name('lead.pdf.download');
+    // Route::get('/pdf/download', 'pdfDownload')->name('lead.pdf.download');
     // Route::get('/pdf/generator', 'pdfGenerator')->name('lead.pdf.generator');
 });
 
 
 //---------------Lufix Service Controller--------------//
 Route::controller(LufixServiceController::class)->prefix('/lufix')->group(function () {
-    Route::get('/', 'lufixIndex')->name('lufix');
-    Route::post('/saveLufix', 'saveLufix')->name('saveLufix');
-    Route::post('/deleteLufix', 'deleteLufix')->name('deleteLufix');
-    Route::post('/updateLufix', 'updateLufix')->name('updateLufix');
-    Route::get('/editLufix/{id}', 'editLufix')->name('editLufix');
+    Route::get('/', 'index')->name('lufix.index');
+    Route::get('/create', 'create')->name('lufix.create');
+    Route::post('/store', 'store')->name('lufix.store');
+    Route::get('/{lufix}/edit', 'edit')->name('lufix.edit');
+    Route::put('/{lufix}/update', 'update')->name('lufix.update');
+    Route::delete('/{lufix}/destroy', 'destroy')->name('lufix.destroy');
 });
 
 //---------------Account Controller--------------//
@@ -192,8 +195,8 @@ Route::controller(ServiceOrderController::class)->prefix('/closed-service-orders
     Route::post('add-closed-service-order',  'saveClosedServiceOrder')->name('add.closed.service.order');
 });
 
-Route::resource('/product/shells', ShellsController::class);
-Route::resource('/product/rdps', RdpsController::class);
+Route::resource('/shell', ShellsController::class);
+Route::resource('/rdps', RdpsController::class);
 Route::resource('/product/sshwhm', SshWhmsController::class);
 
 

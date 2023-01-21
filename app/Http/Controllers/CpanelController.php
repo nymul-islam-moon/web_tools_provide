@@ -14,7 +14,12 @@ class CpanelController extends Controller
     {
         $cpanels = Cpanel::latest()->paginate(5);
 
-        return view('cpanel.index', compact('cpanels'));
+        return view('MyProducts.cpanel.index', compact('cpanels'));
+    }
+
+    public function create()
+    {
+        return view('MyProducts.cpanel.create');
     }
 
     public function store(CreateCpanelRequest $request)
@@ -25,24 +30,24 @@ class CpanelController extends Controller
         $formdata['seo_rank'] = 'test_seo_rank';
         $formdata['status'] = 0;
         Cpanel::create($formdata);
-        return back()->with('create', 'Cpanel created successfully');
+        return redirect()->route('cpanel.index')->with('create', 'Cpanel created successfully');
     }
 
     public function edit(Cpanel $cpanel)
     {
-        return view('cpanel.edit', compact('cpanel'));
+        return view('MyProducts.cpanel.edit', compact('cpanel'));
     }
 
     public function update(UpdateCpanelRequest $request, Cpanel $cpanel)
     {
         $formdata = $request->validated();
         $cpanel->update($formdata);
-        return redirect(route('cpanel.index'))->with('update', 'Cpanel updated successfully');
+        return redirect()->route('cpanel.index')->with('update', 'Cpanel updated successfully');
     }
 
     public function destroy(Cpanel $cpanel)
     {
         $cpanel->delete();
-        return back()->with('destroy', 'Cpanel deleted successfully');
+        return redirect()->route('cpanel.index')->with('destroy', 'Cpanel deleted successfully');
     }
 }

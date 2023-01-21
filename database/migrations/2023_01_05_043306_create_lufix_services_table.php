@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('lufix_services', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->text('description')->nullable();
-            $table->string('proof')->nullable();
             $table->string('selling_type')->nullable();
-            $table->string('duration')->nullable();
             $table->string('price_type')->nullable();
+            $table->string('duration')->nullable();
             $table->tinyInteger('status')->default(0)->comment('0 = Disable; 1 = Enable');
+            $table->string('proof')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

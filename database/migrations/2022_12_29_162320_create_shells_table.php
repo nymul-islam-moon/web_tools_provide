@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('shells', function (Blueprint $table) {
             $table->id();
-            $table->string('shell')->nullable();
+            $table->string('name')->nullable();
             $table->string('source')->nullable();
             $table->string('country')->nullable();
             $table->string('hosting')->nullable();
             $table->string('seo_rank')->nullable();
-            $table->string('host_info')->nullable();
+            $table->string('hosting_info')->nullable();
             $table->float('price')->nullable();
             $table->tinyInteger('status')->nullable();
             $table->timestamps();

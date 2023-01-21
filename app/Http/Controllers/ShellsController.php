@@ -2,63 +2,65 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Shell\CreateShellRequest;
+use App\Http\Requests\Shell\UpdateShellRequest;
 use App\Models\Shells;
-use Illuminate\Http\Request;
 
 class ShellsController extends Controller
 {
 
     public function index()
     {
-        return view('shells.index',[
-            'shells' => Shells::paginate(5),
-        ]);
+        $shells = Shells::paginate(5);
+        return view('MyProducts.Shells.index', compact('shells'));
     }
 
 
     public function create()
     {
-
-        return view('shells.create');
+        return view('MyProducts.Shells.create');
 
     }
 
-    public function store(Request $request)
+    public function store(CreateShellRequest $request)
     {
-        $shell = new Shells();
-        $shell->shell = $request->shell;
-        $shell->source = $request->source;
-        $shell->price = $request->price;
-        $shell->save();
-        return redirect()->route('shells.index');
+        $formData = $request->validated();
+        $formData['hosting'] = 'from controller';
+        $formData['country'] = 'from controller';
+        $formData['seo_rank'] = 'from controller';
+        $formData['status'] = 1;
+        Shells::create($formData);
+        return redirect()->route('shell.index')->with('create', 'Shell created successfully');
     }
 
 
     public function show(Shells $shells)
     {
-
+        //
     }
 
 
     public function edit(Shells $shell)
     {
-        return view('shells.edit', ['shells' => $shell]);
+        return view('MyProducts.Shells.edit', compact('shell'));
 
     }
 
-    public function update(Request $request, Shells $shell)
+    public function update(UpdateShellRequest $request, Shells $shell)
     {
-        $shell->shell = $request->shell;
-        $shell->source = $request->source;
-        $shell->price = $request->price;
-        $shell->save();
-        return redirect()->route('shells.index');
+        $formData = $request->validated();
+        $formData['hosting'] = 'from controller';
+        $formData['country'] = 'from controller';
+        $formData['seo_rank'] = 'from controller';
+        $formData['status'] = 1;
+        $shell->update($formData);
+        return redirect()->route('shell.index')->with('update','Shell updated successfully');
     }
 
 
-    public function destroy(Request $request, Shells $shell)
+    public function destroy(Shells $shell)
     {
         $shell->delete();
-        return redirect()->route('shells.index');
+        return redirect()->route('shell.index')->with('destroy', 'Shell deleted successfully');
     }
 }
